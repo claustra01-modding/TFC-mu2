@@ -354,6 +354,7 @@ Notes:
 - Keep shared data resources in the Minecraft 1.21 layout; the Minecraft 1.20.1 build converts resource paths, common tag namespaces, and JSON compatibility keys during `processResources`.
 - Minecraft 1.20.1 recipe conversion also adapts TFC casting fluids, alloy metal references, and advanced shaped crafting `input_row`.
 - Minecraft 1.20.1 generates TFC metal manager JSON from `tfcmu2/tfc/fluid_heat` for alloy recipe compatibility.
+- Minecraft 1.20.1 tag conversion rewrites `#c` / `#neoforge` references to `#forge` and removes TFC tuff ore tag entries.
 
 ## 13. Molten fluid compatibility
 
