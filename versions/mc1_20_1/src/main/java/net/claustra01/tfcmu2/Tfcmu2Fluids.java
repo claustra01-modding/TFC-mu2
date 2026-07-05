@@ -5,12 +5,20 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import net.dries007.tfc.common.blocks.MoltenFluidBlock;
 import net.dries007.tfc.common.fluids.FluidRegistryObject;
 import net.dries007.tfc.common.fluids.MoltenFluid;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.registry.RegistrationHelpers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.BucketItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
@@ -19,13 +27,18 @@ import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public final class Tfcmu2Fluids {
     private static final ResourceLocation MOLTEN_STILL = Helpers.identifier("block/molten_still");
     private static final ResourceLocation MOLTEN_FLOW = Helpers.identifier("block/molten_flow");
 
+    public static final DeferredRegister<Block> FLUID_BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, "tfc");
+    public static final DeferredRegister<Item> BUCKET_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Tfcmu2Mod.MOD_ID);
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, "tfc");
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, "tfc");
+    public static final Map<Tfcmu2Metal, RegistryObject<LiquidBlock>> METAL_FLUID_BLOCKS = registerMetalFluidBlocks();
+    public static final Map<Tfcmu2Metal, RegistryObject<BucketItem>> METAL_FLUID_BUCKETS = registerMetalFluidBuckets();
     public static final Map<Tfcmu2Metal, FluidRegistryObject<MoltenFluid>> METAL_FLUIDS = registerMetalFluids();
 
     private Tfcmu2Fluids() {
@@ -41,15 +54,36 @@ public final class Tfcmu2Fluids {
         return Collections.unmodifiableMap(fluids);
     }
 
+    private static Map<Tfcmu2Metal, RegistryObject<LiquidBlock>> registerMetalFluidBlocks() {
+        final EnumMap<Tfcmu2Metal, RegistryObject<LiquidBlock>> blocks = new EnumMap<>(Tfcmu2Metal.class);
+        for (Tfcmu2Metal metal : Tfcmu2Metal.values()) {
+            blocks.put(metal, FLUID_BLOCKS.register("fluid/metal/" + metal.getSerializedName(),
+                () -> new MoltenFluidBlock(METAL_FLUIDS.get(metal).source(), BlockBehaviour.Properties.copy(Blocks.LAVA).noLootTable())));
+        }
+        return Collections.unmodifiableMap(blocks);
+    }
+
+    private static Map<Tfcmu2Metal, RegistryObject<BucketItem>> registerMetalFluidBuckets() {
+        final EnumMap<Tfcmu2Metal, RegistryObject<BucketItem>> buckets = new EnumMap<>(Tfcmu2Metal.class);
+        for (Tfcmu2Metal metal : Tfcmu2Metal.values()) {
+            buckets.put(metal, BUCKET_ITEMS.register("bucket/metal/" + metal.getSerializedName(),
+                () -> new BucketItem(() -> METAL_FLUIDS.get(metal).getSource(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1))));
+        }
+        return Collections.unmodifiableMap(buckets);
+    }
+
     private static FluidRegistryObject<MoltenFluid> registerMoltenMetal(String fluidName, String flowingName, Tfcmu2Metal metal) {
         return RegistrationHelpers.registerFluid(FLUID_TYPES, FLUIDS, fluidName, fluidName, flowingName,
-            Tfcmu2Fluids::configureMoltenFluid,
+            properties -> configureMoltenFluid(metal, properties),
             () -> new Tfcmu2MoltenFluidType(moltenFluidProperties().descriptionId("fluid.tfc.metal." + metal.getSerializedName()).rarity(metal.rarity()), metal),
             MoltenFluid.Source::new,
             MoltenFluid.Flowing::new);
     }
 
-    private static void configureMoltenFluid(ForgeFlowingFluid.Properties properties) {
+    private static void configureMoltenFluid(Tfcmu2Metal metal, ForgeFlowingFluid.Properties properties) {
+        properties.block(METAL_FLUID_BLOCKS.get(metal))
+            .bucket(METAL_FLUID_BUCKETS.get(metal))
+            .explosionResistance(100f);
     }
 
     private static FluidType.Properties moltenFluidProperties() {

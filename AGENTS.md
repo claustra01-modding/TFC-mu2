@@ -351,3 +351,8 @@ Notes:
 - Keep the Gradle wrapper on a Gradle 8.x release; ForgeGradle 6 does not support Gradle 9 yet. Configuration cache is disabled for ForgeGradle compatibility.
 - Older `src/main/...` path notes above now map to `shared/src/main/...` for common resources/data and `versions/<version>/src/main/...` for loader-specific code.
 - Do not add loader-specific sources back under root `src`.
+
+## 13. Molten fluid compatibility
+
+- Own molten fluid registry IDs stay under `tfc:metal/<metal>` for released-world compatibility.
+- Minecraft 1.20.1 adds `tfcmu2:bucket/metal/<metal>` bucket items and `tfc:fluid/metal/<metal>` fluid blocks so Forge/TFC creative tab enumeration never receives an empty bucket stack.
