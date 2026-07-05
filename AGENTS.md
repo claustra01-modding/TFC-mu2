@@ -335,3 +335,28 @@ Coverage:
 Notes:
 - `block_slab` and `block_stairs` use direct item IDs, not `c:storage_blocks/*` tags.
 - Ore heat values follow the source metal heat values; powder heat uses the source metal heat tier.
+
+## 12. Multi-version build layout
+
+- Supported targets:
+  - Minecraft 1.20.1: Forge 47.4.20, TFC 3.2.23, JEI 15.20.0.133, Java 17, under `versions/mc1_20_1/src/main`.
+  - Minecraft 1.21.1: NeoForge 21.1.235, TFC 4.2.5, JEI 19.27.0.346, Java 21, under `versions/mc1_21_1/src/main`.
+- The Minecraft 1.21.1 NeoForge implementation lives under `versions/mc1_21_1/src/main`.
+- The Minecraft 1.20.1 Forge implementation uses ForgeGradle and `META-INF/mods.toml`.
+- Shared Java and common resources live under `shared/src/main`; loader metadata stays in each version project.
+- Each version project owns its root `pack.mcmeta`; keep `pack_format` matched to that Minecraft target.
+- The root `build.gradle` is an aggregator; use `./gradlew build` for all targets, or build one target with `./gradlew :versions:mc1_20_1:build` or `./gradlew :versions:mc1_21_1:build`.
+- `./gradlew build` and `./gradlew collectArtifacts` copy release jars into root `build/libs`.
+- Common mod metadata stays in root `gradle.properties`; version-specific Minecraft, loader, TFC, JEI, and Java versions stay in each version project's `gradle.properties`.
+- Keep the Gradle wrapper on a Gradle 8.x release; ForgeGradle 6 does not support Gradle 9 yet. Configuration cache is disabled for ForgeGradle compatibility.
+- Older `src/main/...` path notes above now map to `shared/src/main/...` for common resources/data and `versions/<version>/src/main/...` for loader-specific code.
+- Do not add loader-specific sources back under root `src`.
+- Keep shared data resources in the Minecraft 1.21 layout; the Minecraft 1.20.1 build converts resource paths, common tag namespaces, and JSON compatibility keys during `processResources`.
+- Minecraft 1.20.1 recipe conversion also adapts TFC casting fluids, alloy metal references, and advanced shaped crafting `input_row`.
+- Minecraft 1.20.1 generates TFC metal manager JSON from `tfcmu2/tfc/fluid_heat` for alloy recipe compatibility.
+- Minecraft 1.20.1 tag conversion rewrites `#c` / `#neoforge` references to `#forge` and removes TFC tuff ore tag entries.
+
+## 13. Molten fluid compatibility
+
+- Own molten fluid registry IDs stay under `tfc:metal/<metal>` for released-world compatibility.
+- Minecraft 1.20.1 adds `tfcmu2:bucket/metal/<metal>` bucket items and `tfc:fluid/metal/<metal>` fluid blocks so Forge/TFC creative tab enumeration never receives an empty bucket stack.
