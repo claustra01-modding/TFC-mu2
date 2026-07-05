@@ -351,6 +351,9 @@ Notes:
 - Keep the Gradle wrapper on a Gradle 8.x release; ForgeGradle 6 does not support Gradle 9 yet. Configuration cache is disabled for ForgeGradle compatibility.
 - Older `src/main/...` path notes above now map to `shared/src/main/...` for common resources/data and `versions/<version>/src/main/...` for loader-specific code.
 - Do not add loader-specific sources back under root `src`.
+- Keep shared data resources in the Minecraft 1.21 layout; the Minecraft 1.20.1 build converts resource paths, common tag namespaces, and JSON compatibility keys during `processResources`.
+- Minecraft 1.20.1 recipe conversion also adapts TFC casting fluids, alloy metal references, and advanced shaped crafting `input_row`.
+- Minecraft 1.20.1 generates TFC metal manager JSON from `tfcmu2/tfc/fluid_heat` for alloy recipe compatibility.
 
 ## 13. Molten fluid compatibility
 
