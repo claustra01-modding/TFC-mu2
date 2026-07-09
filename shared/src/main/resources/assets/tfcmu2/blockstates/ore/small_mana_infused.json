@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "tfcmu2:block/ore/small_mana_infused",
+        "y": 90
+      },
+      {
+        "model": "tfcmu2:block/ore/small_mana_infused"
+      },
+      {
+        "model": "tfcmu2:block/ore/small_mana_infused",
+        "y": 180
+      },
+      {
+        "model": "tfcmu2:block/ore/small_mana_infused",
+        "y": 270
+      }
+    ]
+  }
+}

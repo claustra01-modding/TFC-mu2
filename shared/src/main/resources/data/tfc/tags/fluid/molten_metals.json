@@ -1,21 +1,22 @@
 {
-    "replace":  false,
-    "values":  [
-                   "tfc:metal/compressed_iron",
-                   "tfc:metal/platinum",
-                   "tfc:metal/naquadah",
-                   "tfc:metal/iridium",
-                   "tfc:metal/osmium",
-                   "tfc:metal/osmiridium",
-                   "tfc:metal/mythril",
-                   "tfc:metal/refined_glowstone",
-                   "tfc:metal/refined_obsidian",
-                   "tfc:metal/antimony",
-                   "tfc:metal/tungsten",
-                   "tfc:metal/solder",
-                   "tfc:metal/tungsten_steel",
-                   "tfc:metal/netherite",
-                   "tfc:metal/titanium",
-                   "tfc:metal/cobalt"
-               ]
+  "replace": false,
+  "values": [
+    "tfc:metal/compressed_iron",
+    "tfc:metal/platinum",
+    "tfc:metal/naquadah",
+    "tfc:metal/iridium",
+    "tfc:metal/osmium",
+    "tfc:metal/osmiridium",
+    "tfc:metal/mythril",
+    "tfc:metal/refined_glowstone",
+    "tfc:metal/refined_obsidian",
+    "tfc:metal/antimony",
+    "tfc:metal/tungsten",
+    "tfc:metal/solder",
+    "tfc:metal/tungsten_steel",
+    "tfc:metal/netherite",
+    "tfc:metal/titanium",
+    "tfc:metal/cobalt",
+    "tfc:metal/arcane"
+  ]
 }

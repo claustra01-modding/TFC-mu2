@@ -1,0 +1,27 @@
+{
+    "values":  [
+                   "tfcmu2:ore/normal_mana_infused/granite",
+                   "tfcmu2:ore/normal_mana_infused/diorite",
+                   "tfcmu2:ore/normal_mana_infused/gabbro",
+                   "tfcmu2:ore/normal_mana_infused/shale",
+                   "tfcmu2:ore/normal_mana_infused/claystone",
+                   "tfcmu2:ore/normal_mana_infused/limestone",
+                   "tfcmu2:ore/normal_mana_infused/conglomerate",
+                   "tfcmu2:ore/normal_mana_infused/dolomite",
+                   "tfcmu2:ore/normal_mana_infused/chert",
+                   "tfcmu2:ore/normal_mana_infused/chalk",
+                   "tfcmu2:ore/normal_mana_infused/tuff",
+                   "tfcmu2:ore/normal_mana_infused/rhyolite",
+                   "tfcmu2:ore/normal_mana_infused/basalt",
+                   "tfcmu2:ore/normal_mana_infused/andesite",
+                   "tfcmu2:ore/normal_mana_infused/dacite",
+                   "tfcmu2:ore/normal_mana_infused/quartzite",
+                   "tfcmu2:ore/normal_mana_infused/slate",
+                   "tfcmu2:ore/normal_mana_infused/phyllite",
+                   "tfcmu2:ore/normal_mana_infused/schist",
+                   "tfcmu2:ore/normal_mana_infused/gneiss",
+                   "tfcmu2:ore/normal_mana_infused/marble",
+                   "tfcmu2:ore/normal_mana_infused/netherrack",
+                   "tfcmu2:ore/normal_mana_infused/endstone"
+               ]
+}
