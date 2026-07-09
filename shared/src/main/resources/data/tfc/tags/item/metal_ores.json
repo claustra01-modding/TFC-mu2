@@ -23,6 +23,9 @@
     "tfcmu2:ore/rich_stibnite",
     "tfcmu2:ore/poor_wolframite",
     "tfcmu2:ore/normal_wolframite",
-    "tfcmu2:ore/rich_wolframite"
+    "tfcmu2:ore/rich_wolframite",
+    "tfcmu2:ore/poor_mithril_matrix",
+    "tfcmu2:ore/normal_mithril_matrix",
+    "tfcmu2:ore/rich_mithril_matrix"
   ]
 }
