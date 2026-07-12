@@ -272,6 +272,7 @@ compat鉱石（`tfc` / `firmalife` / `tfc_ie_addon`）:
 - compat鉱石は主に `netherrack` / `endstone` 向けtypeを持つ。
 - 独自鉱石は TFC岩石 + バニラ石材向けtypeを持つ。
 - 一部 `small_*` は groundcover blockのみ（ブロックアイテムなし）。
+- TFC propickは鉱石blockの通常translation keyではなく、末尾に `.prospected` を付けたキーを表示する。独自鉱石の全品位・全母岩blockと、TFC / Firmalife / TFC IE Addon由来のNether・End鉱石blockについて `en_us.json` にこのキーを定義する。値は元Modの `.prospected` と一致させ、品位・母岩名を含めない（例: diamondは `Kimberlite`、pyriteは `Native Gold?`）。
 
 ## 9. テクスチャ生成方法
 
