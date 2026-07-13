@@ -231,6 +231,10 @@ ID規則:
 compat鉱石（`tfc` / `firmalife` / `tfc_ie_addon`）:
 - このMod側では専用加工レシピtypeは持たず、主に鉱石ブロック展開が役割。
 
+鉱石加熱の条件:
+- `tfcorewashing` 導入時は独自品位あり鉱石の `poor` / `normal` / `rich` を直接溶融するheating recipeを無効化し、Ore Washingの加工経路を使う。
+- `small` 鉱石の直接溶融は `tfcorewashing` 導入時も有効にする。
+
 ## 8. モデル実装type
 
 主要ディレクトリ:
