@@ -251,8 +251,9 @@ python3 tools/textures/regenerate_metals.py
 - ingot pile用 `assets/tfc/textures/block/metal/smooth/<metal>.png` も同時生成する。
 - InvarのalloyはWrought Iron 60-70% + Nickel 30-40%。
 - 対象TFC versionがsheet pileに対応しない限り、sheet pile assetは追加しない。
-- 工具・防具の形状元は、`invar` がwrought iron、`titanium` がblack steel、`tungsten_steel` がred steel。item texture、防具layer、javelin projectileを同じパレット転写で生成する。
-- 完成工具とjavelin projectileは、TFCのwrought iron / black steel / red steel間で同色のpixelを固定材maskとして扱う。木柄・紐などは再着色せず、金属部分だけにパレット転写を適用する。
+- 工具・防具の形状元はTFC 1.21.1のtexture/modelを正本とする。工具とjavelinは `invar` がwrought iron、`titanium` が通常steel、`tungsten_steel` がred steelを使う。shield、防具、中間防具、horse armor、防具layerは `invar` がwrought iron、`titanium` がblack steel、`tungsten_steel` が通常steelを使う。
+- 完成工具とjavelin projectileは、`invar` / `titanium` ではwrought ironと通常steel、`tungsten_steel` ではred steelとblue steelの同色pixelを固定材maskとして扱う。木柄・紐などは再着色せず、金属部分だけにパレット転写を適用する。
+- horse armorはTFC 1.21.1の全金属texture間で同色のpixelを固定材maskとし、サドル部分を再着色しない。
 
 ### 11.3 Ore Washing
 

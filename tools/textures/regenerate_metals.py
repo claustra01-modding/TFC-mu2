@@ -82,10 +82,16 @@ FORM_BASES = {
     "wire": (MORE_ITEMS_JAR, "assets/tfc_items/textures/item/wrought_iron_wire.png"),
 }
 
-TOOL_METAL_BASES = {
+TOOL_METAL_PROFILES = {
+    "invar": ("wrought_iron", "steel"),
+    "titanium": ("steel", "wrought_iron"),
+    "tungsten_steel": ("red_steel", "blue_steel"),
+}
+
+ARMOR_METAL_BASES = {
     "invar": "wrought_iron",
     "titanium": "black_steel",
-    "tungsten_steel": "red_steel",
+    "tungsten_steel": "steel",
 }
 
 TOOL_FORMS = {
@@ -147,10 +153,22 @@ FIXED_COLOR_FORMS = {
     "mace",
     "knife",
     "scythe",
+}
+
+ARMOR_FORMS = {
+    "unfinished_helmet",
+    "helmet",
+    "unfinished_chestplate",
+    "chestplate",
+    "unfinished_greaves",
+    "greaves",
+    "unfinished_boots",
+    "boots",
+    "horse_armor",
     "shield",
 }
 
-TFC_TOOL_METALS = (
+TFC_FIXED_COLOR_METALS = (
     "copper",
     "bismuth_bronze",
     "black_bronze",
@@ -162,8 +180,33 @@ TFC_TOOL_METALS = (
     "red_steel",
 )
 
-
 def transfer_tool_palette(
+    archive: zipfile.ZipFile,
+    member: str,
+    base_metal: str,
+    comparison_metal: str,
+    base: list[tuple[int, int, int, int]],
+    source: list[tuple[int, int, int, int]],
+) -> list[tuple[int, int, int, int]]:
+    mapped = transfer_palette(base, source)
+    candidate = member.replace(base_metal, comparison_metal)
+    if candidate not in archive.namelist():
+        return mapped
+
+    try:
+        _, comparison = load_zip_png(TFC_JAR, candidate)
+    except UnidentifiedImageError:
+        return mapped
+    if len(comparison) != len(base):
+        return mapped
+
+    return [
+        pixel if comparison[index] == pixel else mapped[index]
+        for index, pixel in enumerate(base)
+    ]
+
+
+def transfer_horse_armor_palette(
     archive: zipfile.ZipFile,
     member: str,
     base_metal: str,
@@ -172,12 +215,12 @@ def transfer_tool_palette(
 ) -> list[tuple[int, int, int, int]]:
     mapped = transfer_palette(base, source)
     comparisons = []
-    for metal in TFC_TOOL_METALS:
+    for metal in TFC_FIXED_COLOR_METALS:
         candidate = member.replace(base_metal, metal)
         if candidate == member or candidate not in archive.namelist():
             continue
         try:
-            candidate_size, candidate_pixels = load_zip_png(TFC_JAR, candidate)
+            _, candidate_pixels = load_zip_png(TFC_JAR, candidate)
         except UnidentifiedImageError:
             continue
         if len(candidate_pixels) == len(base):
@@ -185,7 +228,6 @@ def transfer_tool_palette(
 
     if not comparisons:
         return mapped
-
     return [
         pixel if all(other[index] == pixel for other in comparisons) else mapped[index]
         for index, pixel in enumerate(base)
@@ -260,23 +302,42 @@ def main() -> None:
 
     with zipfile.ZipFile(TFC_JAR) as archive:
         members = set(archive.namelist())
-        for metal, base_metal in TOOL_METAL_BASES.items():
+        for metal, (base_metal, comparison_metal) in TOOL_METAL_PROFILES.items():
             for form in TOOL_FORMS:
-                prefix = f"assets/tfc/textures/item/metal/{form}/{base_metal}"
+                form_base_metal = ARMOR_METAL_BASES[metal] if form in ARMOR_FORMS else base_metal
+                prefix = f"assets/tfc/textures/item/metal/{form}/{form_base_metal}"
+                target_dir = ASSETS / f"tfcmu2/textures/item/metal/{form}"
+                for stale in target_dir.glob(f"{metal}*.png"):
+                    stale.unlink()
                 for member in sorted(name for name in members if name.startswith(prefix) and name.endswith(".png")):
                     suffix = member.removeprefix(prefix)
                     try:
                         size, base = load_zip_png(TFC_JAR, member)
                     except UnidentifiedImageError:
-                        fallback = member.replace(base_metal, "wrought_iron")
+                        fallback = member.replace(form_base_metal, "wrought_iron")
                         size, base = load_zip_png(TFC_JAR, fallback)
-                    target = ASSETS / f"tfcmu2/textures/item/metal/{form}/{metal}{suffix}"
-                    pixels = transfer_tool_palette(archive, member, base_metal, base, sources[metal]) if form in FIXED_COLOR_FORMS else transfer_palette(base, sources[metal])
+                    target = target_dir / f"{metal}{suffix}"
+                    if form == "horse_armor":
+                        pixels = transfer_horse_armor_palette(
+                            archive, member, form_base_metal, base, sources[metal]
+                        )
+                    elif form in FIXED_COLOR_FORMS:
+                        pixels = transfer_tool_palette(
+                            archive,
+                            member,
+                            form_base_metal,
+                            comparison_metal,
+                            base,
+                            sources[metal],
+                        )
+                    else:
+                        pixels = transfer_palette(base, sources[metal])
                     save_png(target, size, pixels)
                     generated += 1
 
             for layer in (1, 2):
-                member = f"assets/tfc/textures/models/armor/{base_metal}_layer_{layer}.png"
+                armor_base_metal = ARMOR_METAL_BASES[metal]
+                member = f"assets/tfc/textures/models/armor/{armor_base_metal}_layer_{layer}.png"
                 size, base = load_zip_png(TFC_JAR, member)
                 target = ASSETS / f"tfcmu2/textures/models/armor/{metal}_layer_{layer}.png"
                 save_png(target, size, transfer_palette(base, sources[metal]))
@@ -285,7 +346,18 @@ def main() -> None:
             member = f"assets/tfc/textures/entity/projectiles/{base_metal}_javelin.png"
             size, base = load_zip_png(TFC_JAR, member)
             target = ASSETS / f"tfcmu2/textures/entity/projectiles/{metal}_javelin.png"
-            save_png(target, size, transfer_tool_palette(archive, member, base_metal, base, sources[metal]))
+            save_png(
+                target,
+                size,
+                transfer_tool_palette(
+                    archive,
+                    member,
+                    base_metal,
+                    comparison_metal,
+                    base,
+                    sources[metal],
+                ),
+            )
             generated += 1
 
     print(f"Regenerated {generated} metal textures for {len(metals)} metals.")
