@@ -30,6 +30,10 @@ public final class TfcmClientEvents {
             TfcmBlocks.ORES.values().forEach(oresByRock ->
                 oresByRock.values().forEach(block -> ItemBlockRenderTypes.setRenderLayer(block.get(), cutout)));
 
+            // Regular ores in vanilla stones (netherrack/endstone)
+            TfcmBlocks.VANILLA_ORES.values().forEach(oresByStone ->
+                oresByStone.values().forEach(block -> ItemBlockRenderTypes.setRenderLayer(block.get(), cutout)));
+
             // Graded ores in TFC rocks
             TfcmBlocks.GRADED_ORES.values().forEach(oresByRock ->
                 oresByRock.values().forEach(oresByGrade ->

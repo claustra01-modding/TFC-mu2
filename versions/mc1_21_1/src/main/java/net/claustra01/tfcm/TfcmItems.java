@@ -46,6 +46,7 @@ public final class TfcmItems {
     public static final Map<TfcmOre, DeferredItem<Item>> ORES = registerOreItems();
     public static final Map<TfcmOre, Map<Ore.Grade, DeferredItem<Item>>> GRADED_ORES = registerGradedOreItems();
     public static final Map<Rock, Map<TfcmOre, DeferredItem<?>>> ORE_BLOCK_ITEMS = TfcmBlocks.registerOreBlockItems(ITEMS);
+    public static final Map<TfcmVanillaStone, Map<TfcmOre, DeferredItem<?>>> VANILLA_ORE_BLOCK_ITEMS = TfcmBlocks.registerVanillaOreBlockItems(ITEMS);
     public static final Map<Rock, Map<TfcmOre, Map<Ore.Grade, DeferredItem<?>>>> GRADED_ORE_BLOCK_ITEMS = TfcmBlocks.registerGradedOreBlockItems(ITEMS);
     public static final Map<TfcmVanillaStone, Map<TfcmOre, Map<Ore.Grade, DeferredItem<?>>>> VANILLA_GRADED_ORE_BLOCK_ITEMS = TfcmBlocks.registerVanillaGradedOreBlockItems(ITEMS);
     public static final Map<TfcmVanillaStone, Map<String, DeferredItem<?>>> COMPAT_VANILLA_ORE_BLOCK_ITEMS = TfcmBlocks.registerCompatVanillaOreBlockItems(ITEMS);

@@ -10,7 +10,6 @@ public final class TfcmContentNames {
         "cryolite",
         "diamond",
         "emerald",
-        "fluorite",
         "graphite",
         "gypsum",
         "lapis_lazuli",

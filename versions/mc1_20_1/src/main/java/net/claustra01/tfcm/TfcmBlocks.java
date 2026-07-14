@@ -29,6 +29,7 @@ public final class TfcmBlocks {
     public static final Map<TfcmMetal, RegistryObject<Block>> METAL_BLOCK_SLABS = registerMetalBlockSlabs();
     public static final Map<TfcmMetal, RegistryObject<Block>> METAL_BLOCK_STAIRS = registerMetalBlockStairs();
     public static final Map<Rock, Map<TfcmOre, RegistryObject<Block>>> ORES = registerOres();
+    public static final Map<TfcmVanillaStone, Map<TfcmOre, RegistryObject<Block>>> VANILLA_ORES = registerVanillaOres();
     public static final Map<Rock, Map<TfcmOre, Map<Ore.Grade, RegistryObject<Block>>>> GRADED_ORES = registerGradedOres();
     public static final Map<TfcmVanillaStone, Map<TfcmOre, Map<Ore.Grade, RegistryObject<Block>>>> VANILLA_GRADED_ORES = registerVanillaGradedOres();
     public static final Map<TfcmVanillaStone, Map<String, RegistryObject<Block>>> COMPAT_VANILLA_ORES = registerCompatVanillaOres();
@@ -77,6 +78,22 @@ public final class TfcmBlocks {
                 rockItems.put(ore, registerBlockItem(items, id, ORES.get(rock).get(ore)));
             }
             blockItems.put(rock, Collections.unmodifiableMap(rockItems));
+        }
+        return Collections.unmodifiableMap(blockItems);
+    }
+
+    public static Map<TfcmVanillaStone, Map<TfcmOre, RegistryObject<?>>> registerVanillaOreBlockItems(DeferredRegister<Item> items) {
+        final EnumMap<TfcmVanillaStone, Map<TfcmOre, RegistryObject<?>>> blockItems = new EnumMap<>(TfcmVanillaStone.class);
+        for (TfcmVanillaStone stone : TfcmVanillaStone.values()) {
+            final EnumMap<TfcmOre, RegistryObject<?>> stoneItems = new EnumMap<>(TfcmOre.class);
+            for (TfcmOre ore : TfcmOre.VALUES) {
+                if (ore.isGraded()) {
+                    continue;
+                }
+                final String id = "ore/" + ore.getSerializedName() + "/" + stone.getSerializedName();
+                stoneItems.put(ore, registerBlockItem(items, id, VANILLA_ORES.get(stone).get(ore)));
+            }
+            blockItems.put(stone, Collections.unmodifiableMap(stoneItems));
         }
         return Collections.unmodifiableMap(blockItems);
     }
@@ -190,6 +207,22 @@ public final class TfcmBlocks {
             rocks.put(rock, Collections.unmodifiableMap(ores));
         }
         return Collections.unmodifiableMap(rocks);
+    }
+
+    private static Map<TfcmVanillaStone, Map<TfcmOre, RegistryObject<Block>>> registerVanillaOres() {
+        final EnumMap<TfcmVanillaStone, Map<TfcmOre, RegistryObject<Block>>> stones = new EnumMap<>(TfcmVanillaStone.class);
+        for (TfcmVanillaStone stone : TfcmVanillaStone.values()) {
+            final EnumMap<TfcmOre, RegistryObject<Block>> ores = new EnumMap<>(TfcmOre.class);
+            for (TfcmOre ore : TfcmOre.VALUES) {
+                if (ore.isGraded()) {
+                    continue;
+                }
+                final String id = "ore/" + ore.getSerializedName() + "/" + stone.getSerializedName();
+                ores.put(ore, BLOCKS.register(id, () -> createVanillaOreBlock(stone.baseBlock())));
+            }
+            stones.put(stone, Collections.unmodifiableMap(ores));
+        }
+        return Collections.unmodifiableMap(stones);
     }
 
     private static Map<Rock, Map<TfcmOre, Map<Ore.Grade, RegistryObject<Block>>>> registerGradedOres() {
