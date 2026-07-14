@@ -159,8 +159,6 @@ FIXED_COLOR_FORMS = {
     "shears",
 }
 
-HORIZONTALLY_FLIPPED_ITEM_FORMS = {"knife", "javelin"}
-
 ARMOR_FORMS = {
     "unfinished_helmet",
     "helmet",
@@ -238,17 +236,6 @@ def transfer_horse_armor_palette(
     return [
         pixel if all(other[index] == pixel for other in comparisons) else mapped[index]
         for index, pixel in enumerate(base)
-    ]
-
-
-def flip_horizontal(
-    size: tuple[int, int], pixels: list[tuple[int, int, int, int]]
-) -> list[tuple[int, int, int, int]]:
-    width, height = size
-    return [
-        pixels[row * width + (width - 1 - column)]
-        for row in range(height)
-        for column in range(width)
     ]
 
 
@@ -351,8 +338,6 @@ def main() -> None:
                         )
                     else:
                         pixels = transfer_palette(base, sources[metal])
-                    if form in HORIZONTALLY_FLIPPED_ITEM_FORMS:
-                        pixels = flip_horizontal(size, pixels)
                     save_png(target, size, pixels)
                     generated += 1
 

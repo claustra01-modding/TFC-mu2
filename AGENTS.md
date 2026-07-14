@@ -263,7 +263,7 @@ python3 tools/textures/regenerate_metals.py
 - 工具・防具の形状元はTFC 1.21.1のtexture/modelを正本とする。工具とjavelinは `invar` がwrought iron、`titanium` が通常steel、`tungsten_steel` がred steelを使う。shield、防具、中間防具、horse armor、防具layerは `invar` がwrought iron、`titanium` がblack steel、`tungsten_steel` が通常steelを使う。
 - 完成工具、shears、javelin projectileは、`invar` / `titanium` ではwrought ironと通常steel、`tungsten_steel` ではred steelとblue steelの同色pixelを固定材maskとして扱う。木柄・紐・支点などは再着色せず、金属部分だけにパレット転写を適用する。
 - horse armorはTFC 1.21.1の全金属texture間で同色のpixelを固定材maskとし、サドル部分を再着色しない。
-- knifeとjavelinのitem textureは、TFCのitem model transform後の表示方向に合わせ、パレット転写と固定材mask適用後に水平反転する。knife blade、javelin head、javelin projectileは反転しない。
+- 完成knife/javelinのitem textureはTFC 1.21.1の元textureと同じ向きを維持し、追加の水平反転を行わない。1.21.1のknife blade/javelin headも反転しない。1.20.1では実表示の向きに合わせ、`processResources` 中に完成knife/javelinとknife blade/javelin headを水平反転する。javelin projectileは両versionとも反転しない。
 - optional連携のcrossguard/pommelはTFC Metal Toolsの形状を使ってshared assetへ、tongs/tong partはTFC Hot or Notの形状を使って1.21.1固有assetへ生成する。いずれも同じ金属パレット転写を使い、tongsとtong partは元Mod内の比較金属間で同色のpixelを固定材として保持する。
 
 ### 11.3 Ore Washing
