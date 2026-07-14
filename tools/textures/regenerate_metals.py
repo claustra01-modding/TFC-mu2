@@ -159,7 +159,12 @@ FIXED_COLOR_FORMS = {
     "shears",
 }
 
-HORIZONTALLY_FLIPPED_TOOL_FORMS = {"knife", "javelin"}
+HORIZONTALLY_FLIPPED_TOOL_FORMS = {
+    "knife",
+    "knife_blade",
+    "javelin",
+    "javelin_head",
+}
 
 ARMOR_FORMS = {
     "unfinished_helmet",

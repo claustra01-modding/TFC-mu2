@@ -1,8 +1,6 @@
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
-import javax.imageio.ImageIO
-import java.awt.image.BufferedImage
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
@@ -22,11 +20,6 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(java_version as int)
 
 def sharedResourcesDir = rootProject.layout.projectDirectory.dir('shared/src/main/resources')
 def mc1_20_1SharedResourcesDir = layout.buildDirectory.dir('generated/mc1_20_1_shared_resources')
-def mc1_20_1FlippedToolTextures = [
-    'assets/tfcm/textures/item/metal/knife_blade',
-    'assets/tfcm/textures/item/metal/javelin_head'
-]
-def mc1_20_1ToolMetals = ['invar', 'titanium', 'tungsten_steel']
 
 def toMc1_20_1ResourcePath = { String path ->
     if (!path.startsWith('data/')) {
@@ -187,20 +180,6 @@ tasks.register('prepareMc1_20_1SharedResources') {
                 } else {
                     Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING)
                 }
-            }
-        }
-
-        mc1_20_1FlippedToolTextures.each { directory ->
-            mc1_20_1ToolMetals.each { metal ->
-                def target = outputRoot.resolve("${directory}/${metal}.png")
-                def sourceImage = ImageIO.read(target.toFile())
-                def flippedImage = new BufferedImage(sourceImage.width, sourceImage.height, BufferedImage.TYPE_INT_ARGB)
-                for (int y = 0; y < sourceImage.height; y++) {
-                    for (int x = 0; x < sourceImage.width; x++) {
-                        flippedImage.setRGB(sourceImage.width - 1 - x, y, sourceImage.getRGB(x, y))
-                    }
-                }
-                ImageIO.write(flippedImage, 'png', target.toFile())
             }
         }
 
