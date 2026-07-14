@@ -27,6 +27,7 @@ public enum Tfcmu2Metal implements RegistryMetal {
     LITHIUM("lithium", Rarity.COMMON, 0xC5CBD1),
     ALUMINUM("aluminum", Rarity.COMMON, 0x929799),
     CONSTANTAN("constantan", Rarity.COMMON, 0xA45B49),
+    INVAR("invar", Rarity.COMMON, 0x869A97),
     ELECTRUM("electrum", Rarity.UNCOMMON, 0xA67F3A),
     LEAD("lead", Rarity.COMMON, 0x393D4A),
     URANIUM("uranium", Rarity.UNCOMMON, 0x4E5946),

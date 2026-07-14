@@ -23,8 +23,9 @@ METALLUM_U_JAR = ROOT / ".tmp/tfc_metallum_u/TFC Metallum 1.18.2-1.0.8.jar"
 PNEUMATICCRAFT_JAR = ROOT / ".tmp/pneumaticcraft/pneumaticcraft-repressurized-8.2.20+mc1.21.1.jar"
 MEKANISM_JAR = ROOT / ".tmp/mekanism/Mekanism-1.21.1-10.7.19.85.jar"
 MEKANISM_EXTRAS_JAR = ROOT / ".tmp/mekanism_extras/mekanism_extras-1.21.1-1.4.0.jar"
+THERMAL_FOUNDATION_JAR = ROOT / ".tmp/thermal_foundation/thermal_foundation-1.20.1-11.0.6.70.jar"
 MINECRAFT_JAR = Path.home() / ".gradle/caches/neoformruntime/artifacts/minecraft_1.21.1_client.jar"
-PLATED_BLOCK_RANK_SCALE = 0.55
+LARGE_SURFACE_RANK_SCALE = 0.55
 
 IE_METALS = {"aluminum", "constantan", "electrum", "lead", "uranium"}
 IRON_SPELLS_METALS = {"mithril", "arcane"}
@@ -58,6 +59,7 @@ ORIGINAL_MOD_SOURCES = {
         MEKANISM_JAR,
         "assets/mekanism/textures/item/ingot_refined_obsidian.png",
     ),
+    "invar": (THERMAL_FOUNDATION_JAR, "assets/thermal/textures/item/invar_ingot.png"),
 }
 
 FORM_BASES = {
@@ -124,9 +126,14 @@ def main() -> None:
             "tfcmu2",
             "block",
             "assets/tfc/textures/block/metal/block/wrought_iron.png",
-            PLATED_BLOCK_RANK_SCALE,
+            LARGE_SURFACE_RANK_SCALE,
         ),
-        ("tfc", "smooth", "assets/tfc/textures/block/metal/smooth/wrought_iron.png", 1.0),
+        (
+            "tfc",
+            "smooth",
+            "assets/tfc/textures/block/metal/smooth/wrought_iron.png",
+            LARGE_SURFACE_RANK_SCALE,
+        ),
     ):
         size, base = load_zip_png(TFC_JAR, member)
         for metal in metals:

@@ -1,4 +1,4 @@
-﻿{
+{
     "type":  "tfc:heating",
     "ingredient":  {
                        "item":  "tfcmu2:metal/block/compressed_iron_slab"

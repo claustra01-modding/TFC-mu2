@@ -1,4 +1,4 @@
-﻿{
+{
     "parent":  "block/stairs",
     "textures":  {
                      "bottom":  "tfcmu2:block/metal/block/antimony",
