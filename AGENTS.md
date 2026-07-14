@@ -128,7 +128,7 @@ compat層はingot等の金属形状や専用加工recipeを追加しない。単
 - 対象金属は `invar`, `titanium`, `tungsten_steel` とする。
 - `tfc_metal_tools` は1.20.1/1.21.1のoptional dependency。導入時は `crossguard`, `pommel` を有効化し、標準工具の組立recipeを同Mod方式へ切り替える。
 - `tfchotornot` は1.21.1のみoptional dependency。導入時は `tongs`, `tong_part` を有効化する。tongsは同Mod本来の `TongsItem` として生成し、`tfchotornot:tongs` tagへ含める。
-- 1.21.1で両Modを導入した場合はshearsとtongsもTFC Metal Tools方式で組み立てる。
+- 1.21.1で両Modを導入した場合もtongsはHot or Not本来のrecipeを維持し、shearsのみTFC Metal Tools方式で組み立てる。
 - Metal Toolsの互換recipe、item heat、tag、assetは `shared/src/main/resources`、Hot or Not固有分は `versions/mc1_21_1/src/main/resources` に置く。
 - optional item IDはresource reload時の未登録参照を避けるため対応versionのregistryへ常設し、対象Mod未導入時はcreative tabとrecipeから隠す。IDは `tfcmu2:metal/<form>/<metal>` とする。
 
@@ -261,10 +261,10 @@ python3 tools/textures/regenerate_metals.py
 - InvarのalloyはWrought Iron 60-70% + Nickel 30-40%。
 - 対象TFC versionがsheet pileに対応しない限り、sheet pile assetは追加しない。
 - 工具・防具の形状元はTFC 1.21.1のtexture/modelを正本とする。工具とjavelinは `invar` がwrought iron、`titanium` が通常steel、`tungsten_steel` がred steelを使う。shield、防具、中間防具、horse armor、防具layerは `invar` がwrought iron、`titanium` がblack steel、`tungsten_steel` が通常steelを使う。
-- 完成工具とjavelin projectileは、`invar` / `titanium` ではwrought ironと通常steel、`tungsten_steel` ではred steelとblue steelの同色pixelを固定材maskとして扱う。木柄・紐などは再着色せず、金属部分だけにパレット転写を適用する。
+- 完成工具、shears、javelin projectileは、`invar` / `titanium` ではwrought ironと通常steel、`tungsten_steel` ではred steelとblue steelの同色pixelを固定材maskとして扱う。木柄・紐・支点などは再着色せず、金属部分だけにパレット転写を適用する。
 - horse armorはTFC 1.21.1の全金属texture間で同色のpixelを固定材maskとし、サドル部分を再着色しない。
 - knifeとjavelinのitem textureは、TFCのitem model transform後の表示方向に合わせ、パレット転写と固定材mask適用後に水平反転する。knife blade、javelin head、javelin projectileは反転しない。
-- optional連携のcrossguard/pommelはTFC Metal Toolsの形状を使ってshared assetへ、tongs/tong partはTFC Hot or Notの形状を使って1.21.1固有assetへ生成する。いずれも同じ金属パレット転写を使い、tongsは元Mod内の比較金属間で同色のpixelを固定材として保持する。
+- optional連携のcrossguard/pommelはTFC Metal Toolsの形状を使ってshared assetへ、tongs/tong partはTFC Hot or Notの形状を使って1.21.1固有assetへ生成する。いずれも同じ金属パレット転写を使い、tongsとtong partは元Mod内の比較金属間で同色のpixelを固定材として保持する。
 
 ### 11.3 Ore Washing
 

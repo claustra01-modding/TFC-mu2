@@ -156,6 +156,7 @@ FIXED_COLOR_FORMS = {
     "mace",
     "knife",
     "scythe",
+    "shears",
 }
 
 HORIZONTALLY_FLIPPED_ITEM_FORMS = {"knife", "javelin"}
@@ -393,7 +394,7 @@ def main() -> None:
                 texture = pattern.format(metal=base_metal)
                 member = f"assets/{namespace}/textures/item/{texture}.png"
                 size, base = load_zip_png(archive_path, member)
-                if form == "tongs":
+                if form in {"tongs", "tong_part"}:
                     pixels = transfer_tool_palette(
                         archive,
                         archive_path,
