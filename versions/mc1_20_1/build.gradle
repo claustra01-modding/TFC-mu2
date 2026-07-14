@@ -23,9 +23,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(java_version as int)
 def sharedResourcesDir = rootProject.layout.projectDirectory.dir('shared/src/main/resources')
 def mc1_20_1SharedResourcesDir = layout.buildDirectory.dir('generated/mc1_20_1_shared_resources')
 def mc1_20_1FlippedToolTextures = [
-    'assets/tfcm/textures/item/metal/knife',
     'assets/tfcm/textures/item/metal/knife_blade',
-    'assets/tfcm/textures/item/metal/javelin',
     'assets/tfcm/textures/item/metal/javelin_head'
 ]
 def mc1_20_1ToolMetals = ['invar', 'titanium', 'tungsten_steel']

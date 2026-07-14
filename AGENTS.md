@@ -9,7 +9,7 @@
 - 再利用する保守ツールは `tools` に置き、生成物だけでなく再生成手順も維持する。
 - JSONはBOMなしUTF-8で保存する。
 - 既存リリースのregistry IDや名前空間を変更する場合は、ワールド互換性を最優先する。
-- release用Mod IDとresource namespaceは `tfcm` とし、旧 `tfcmu2` namespaceとの互換aliasは持たない。
+- release用Mod ID、resource namespace、Java package、class prefixは `tfcm` / `Tfcm` に統一し、旧namespaceとの互換aliasは持たない。
 
 ## 2. build構成
 
@@ -30,7 +30,7 @@
 - 1.20.1変換はTFC casting fluid、alloy metal reference、advanced shapedの `input_row`、`item_size` -> `item_sizes`、`#c` / `#neoforge` -> `#forge`、tuff ore tag除去を含む。
 - 1.20.1では `tfcm/tfc/fluid_heat` からTFC metal manager JSONを生成する。
 - 金属・鉱石・tool tier等の仕様値とloader非依存worldgen処理は `shared/src/main/java` に置く。各versionにはregistry holder、loader event、serializer、TFC API constructor等のadapterだけを置く。
-- loader差分は各versionの `Tfcmu2Platform` とworldgen adapterへ閉じ込め、同一ロジックをversion別に複製しない。
+- loader差分は各versionの `TfcmPlatform` とworldgen adapterへ閉じ込め、同一ロジックをversion別に複製しない。
 
 ## 3. 独自金属
 
@@ -114,7 +114,7 @@ Gem関連:
 
 TFC由来:
 
-- `Tfcmu2CompatOres.TFC_ORES` の鉱石へ `netherrack` / `endstone` blockを追加する。
+- `TfcmCompatOres.TFC_ORES` の鉱石へ `netherrack` / `endstone` blockを追加する。
 - ID: `tfcm:ore/<ore_name>/{netherrack|endstone}`
 - 一部の非品位鉱石pieceへ `small_<ore_piece_name>` groundcover blockを追加する。block itemは持たない。
 
@@ -203,7 +203,7 @@ model pathはregistry IDと同じ階層を基本とする。
 - 出力は `blocks` listで定義し、各要素に `block` と省略可能な `weight`（既定値1）を指定する。
 - `tier` は品位名から整数weightへのmappingとする。
 - 既存config互換のため、parserは旧 `block` とlist風 `tier` も受け入れる。
-- YAML parser本体は `shared/src/main/java`、TFC API差分は各versionの `Tfcmu2VeinPlatform` に限定する。
+- YAML parser本体は `shared/src/main/java`、TFC API差分は各versionの `TfcmVeinPlatform` に限定する。
 - bauxite、galena、uraniniteの鉱脈はCrossoverではなく `tfcm:ore/*` と `tfcm:ore/small_*` を生成する。
 
 ## 11. テクスチャ生成
@@ -262,12 +262,12 @@ python3 tools/textures/regenerate_metals.py
 - 依存jarとIron's Spellsの抽出画像は `.tmp` に置き、リポジトリへコピーしない。
 - ingot pile用 `assets/tfc/textures/block/metal/smooth/<metal>.png` も同時生成する。
 - InvarのalloyはWrought Iron 60-70% + Nickel 30-40%。
-- `invar`、`titanium`、`tungsten_steel` のtool tierはTFC本体を直接参照せず、各versionの `Tfcmu2Tiers` に固定値で定義する。InvarはWrought Iron相当、Titaniumは耐久値3300（Steel相当）以外をBlack Steel相当とする。
+- `invar`、`titanium`、`tungsten_steel` のtool tierはTFC本体を直接参照せず、各versionの `TfcmTiers` に固定値で定義する。InvarはWrought Iron相当、Titaniumは耐久値3300（Steel相当）以外をBlack Steel相当とする。
 - 対象TFC versionがsheet pileに対応しない限り、sheet pile assetは追加しない。
 - 工具・防具の形状元はTFC 1.21.1のtexture/modelを正本とする。工具とjavelinは `invar` がwrought iron、`titanium` が通常steel、`tungsten_steel` がred steelを使う。shield、防具、中間防具、horse armor、防具layerは `invar` がwrought iron、`titanium` がblack steel、`tungsten_steel` が通常steelを使う。
 - 完成工具、shears、javelin projectileは、`invar` / `titanium` ではwrought ironと通常steel、`tungsten_steel` ではred steelとblue steelの同色pixelを固定材maskとして扱う。木柄・紐・支点などは再着色せず、金属部分だけにパレット転写を適用する。
 - horse armorはTFC 1.21.1の全金属texture間で同色のpixelを固定材maskとし、サドル部分を再着色しない。
-- 完成knife/javelinのitem textureはTFC 1.21.1の元textureと同じ向きを維持し、追加の水平反転を行わない。1.21.1のknife blade/javelin headも反転しない。1.20.1では実表示の向きに合わせ、`processResources` 中に完成knife/javelinとknife blade/javelin headを水平反転する。javelin projectileは両versionとも反転しない。
+- 完成knife/javelinのitem textureはTFC 1.21.1の形状を生成時に水平反転し、両versionでその共有textureを使う。knife blade/javelin headはsharedでは反転せず、1.20.1のみ `processResources` 中に水平反転する。javelin projectileは両versionとも反転しない。
 - optional連携のcrossguard/pommelはTFC Metal Toolsの形状を使ってshared assetへ、tongs/tong partはTFC Hot or Notの形状を使って1.21.1固有assetへ生成する。いずれも同じ金属パレット転写を使い、tongsとtong partは元Mod内の比較金属間で同色のpixelを固定材として保持する。
 
 ### 11.3 Ore Washing
@@ -301,8 +301,10 @@ python3 tools/textures/regenerate_misc.py
 
 ## 12. 主要コード
 
-- 共通名一覧: sharedの `Tfcmu2ContentNames.java`
-- 金属・鉱石・item/block登録: 各versionの `Tfcmu2Metal.java`, `Tfcmu2Ore.java`, `Tfcmu2Items.java`, `Tfcmu2Blocks.java`
-- compat鉱石・Mod entry: 各versionの `Tfcmu2CompatOres.java`, `Tfcmu2Mod.java`
-- 鉱脈parser: sharedの `worldgen/Tfcmu2VeinsYamlParser.java`
-- 鉱脈platform: 各versionの `Tfcmu2VeinPlatform.java`
+- 共通名一覧: sharedの `TfcmContentNames.java`
+- 金属・鉱石仕様: sharedの `TfcmMetalSpec.java`, `TfcmOre.java`
+- item/block登録: 各versionの `TfcmMetal.java`, `TfcmItems.java`, `TfcmBlocks.java`
+- compat鉱石: sharedの `TfcmCompatOres.java`
+- Mod entry: 各versionの `TfcmMod.java`
+- 鉱脈parser: sharedの `worldgen/TfcmVeinsYamlParser.java`
+- 鉱脈platform: 各versionの `TfcmVeinPlatform.java`
