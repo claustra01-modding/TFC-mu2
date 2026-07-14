@@ -84,6 +84,7 @@ ID規則:
 - `small_fluorite` と `small_quartz` はgroundcover blockのみでblock itemを持たない。
 - QuartzはTFCのRuby等と同じ非品位宝石鉱石として、全TFC母岩、Nether、Endの `tfcm:ore/quartz/<rock_or_stone>` blockと `tfcm:ore/small_quartz` groundcover blockを持つ。
 - Quartz block modelは `tfcm:block/ore/quartz` overlayを参照する。overlay PNGは別途提供される正式素材を使用する。
+- 全Nether鉱石blockはBeneathと同じ硬度3、爆発耐性10とする。End鉱石blockはVanilla End Stone相当の硬度3、爆発耐性9とする。
 
 `tfcorewashing` 導入時のみ、全品位あり鉱石へ次の形状を追加する。
 

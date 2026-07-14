@@ -216,7 +216,7 @@ public final class TfcmBlocks {
                     continue;
                 }
                 final String id = "ore/" + ore.getSerializedName() + "/" + stone.getSerializedName();
-                ores.put(ore, BLOCKS.register(id, () -> createVanillaOreBlock(stone.baseBlock())));
+                ores.put(ore, BLOCKS.register(id, () -> createVanillaOreBlock(stone)));
             }
             stones.put(stone, Collections.unmodifiableMap(ores));
         }
@@ -256,7 +256,7 @@ public final class TfcmBlocks {
                 for (Ore.Grade grade : Ore.Grade.values()) {
                     final String gradeName = grade.name().toLowerCase(Locale.ROOT);
                     final String id = "ore/" + gradeName + "_" + ore.getSerializedName() + "/" + stone.getSerializedName();
-                    grades.put(grade, BLOCKS.register(id, () -> createVanillaOreBlock(stone.baseBlock())));
+                    grades.put(grade, BLOCKS.register(id, () -> createVanillaOreBlock(stone)));
                 }
                 ores.put(ore, Collections.unmodifiableMap(grades));
             }
@@ -272,7 +272,7 @@ public final class TfcmBlocks {
             final Map<String, DeferredBlock<Block>> ores = new HashMap<>();
             for (String oreName : oreNames) {
                 final String id = "ore/" + oreName + "/" + stone.getSerializedName();
-                ores.put(oreName, BLOCKS.register(id, () -> createVanillaOreBlock(stone.baseBlock())));
+                ores.put(oreName, BLOCKS.register(id, () -> createVanillaOreBlock(stone)));
             }
             stones.put(stone, Collections.unmodifiableMap(ores));
         }
@@ -310,7 +310,9 @@ public final class TfcmBlocks {
         return Collections.unmodifiableMap(ores);
     }
 
-    private static Block createVanillaOreBlock(Block baseBlock) {
-        return new Block(BlockBehaviour.Properties.ofFullCopy(baseBlock).requiresCorrectToolForDrops());
+    private static Block createVanillaOreBlock(TfcmVanillaStone stone) {
+        return new Block(BlockBehaviour.Properties.ofFullCopy(stone.baseBlock())
+            .strength(stone.hardness(), stone.explosionResistance())
+            .requiresCorrectToolForDrops());
     }
 }
