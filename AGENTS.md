@@ -259,6 +259,7 @@ python3 tools/textures/regenerate_metals.py
 - 依存jarとIron's Spellsの抽出画像は `.tmp` に置き、リポジトリへコピーしない。
 - ingot pile用 `assets/tfc/textures/block/metal/smooth/<metal>.png` も同時生成する。
 - InvarのalloyはWrought Iron 60-70% + Nickel 30-40%。
+- `invar`、`titanium`、`tungsten_steel` のtool tierはTFC本体を直接参照せず、各versionの `Tfcmu2Tiers` に固定値で定義する。InvarはWrought Iron相当、Titaniumは耐久値3300（Steel相当）以外をBlack Steel相当とする。
 - 対象TFC versionがsheet pileに対応しない限り、sheet pile assetは追加しない。
 - 工具・防具の形状元はTFC 1.21.1のtexture/modelを正本とする。工具とjavelinは `invar` がwrought iron、`titanium` が通常steel、`tungsten_steel` がred steelを使う。shield、防具、中間防具、horse armor、防具layerは `invar` がwrought iron、`titanium` がblack steel、`tungsten_steel` が通常steelを使う。
 - 完成工具、shears、javelin projectileは、`invar` / `titanium` ではwrought ironと通常steel、`tungsten_steel` ではred steelとblue steelの同色pixelを固定材maskとして扱う。木柄・紐・支点などは再着色せず、金属部分だけにパレット転写を適用する。

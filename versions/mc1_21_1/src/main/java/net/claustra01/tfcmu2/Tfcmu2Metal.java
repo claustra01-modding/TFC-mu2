@@ -1,7 +1,6 @@
 package net.claustra01.tfcmu2;
 
 import net.dries007.tfc.common.LevelTier;
-import net.dries007.tfc.common.TFCTiers;
 import net.dries007.tfc.util.Metal;
 import net.dries007.tfc.util.registry.RegistryMetal;
 import net.minecraft.core.Holder;
@@ -54,8 +53,8 @@ public enum Tfcmu2Metal implements RegistryMetal {
 
     @Override
     public LevelTier toolTier() {
-        if (this == INVAR) return TFCTiers.WROUGHT_IRON;
-        if (this == TITANIUM) return TFCTiers.BLACK_STEEL;
+        if (this == INVAR) return Tfcmu2Tiers.INVAR;
+        if (this == TITANIUM) return Tfcmu2Tiers.TITANIUM;
         if (this == TUNGSTEN_STEEL) return Tfcmu2Tiers.TUNGSTEN_STEEL;
         throw unsupported("toolTier");
     }
