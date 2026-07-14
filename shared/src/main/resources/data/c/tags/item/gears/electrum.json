@@ -1,7 +1,7 @@
 {
     "values":  [
                    {
-                       "id":  "tfcmu2:metal/gear/electrum",
+                       "id":  "tfcm:metal/gear/electrum",
                        "required":  false
                    }
                ]

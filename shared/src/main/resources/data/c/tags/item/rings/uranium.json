@@ -1,7 +1,7 @@
 {
     "values":  [
                    {
-                       "id":  "tfcmu2:metal/ring/uranium",
+                       "id":  "tfcm:metal/ring/uranium",
                        "required":  false
                    }
                ]

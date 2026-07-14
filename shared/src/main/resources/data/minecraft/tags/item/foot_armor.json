@@ -1,7 +1,7 @@
 {
   "values": [
-    "tfcmu2:metal/boots/invar",
-    "tfcmu2:metal/boots/titanium",
-    "tfcmu2:metal/boots/tungsten_steel"
+    "tfcm:metal/boots/invar",
+    "tfcm:metal/boots/titanium",
+    "tfcm:metal/boots/tungsten_steel"
   ]
 }

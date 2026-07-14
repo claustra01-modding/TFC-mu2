@@ -1,7 +1,7 @@
 {
   "values": [
-    "tfcmu2:metal/mace/invar",
-    "tfcmu2:metal/mace/titanium",
-    "tfcmu2:metal/mace/tungsten_steel"
+    "tfcm:metal/mace/invar",
+    "tfcm:metal/mace/titanium",
+    "tfcm:metal/mace/tungsten_steel"
   ]
 }

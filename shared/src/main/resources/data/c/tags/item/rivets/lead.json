@@ -1,7 +1,7 @@
 {
     "values":  [
                    {
-                       "id":  "tfcmu2:metal/rivet/lead",
+                       "id":  "tfcm:metal/rivet/lead",
                        "required":  false
                    }
                ]

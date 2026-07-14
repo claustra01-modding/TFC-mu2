@@ -1,7 +1,7 @@
 {
   "values": [
-    "tfcmu2:metal/pickaxe/invar",
-    "tfcmu2:metal/pickaxe/titanium",
-    "tfcmu2:metal/pickaxe/tungsten_steel"
+    "tfcm:metal/pickaxe/invar",
+    "tfcm:metal/pickaxe/titanium",
+    "tfcm:metal/pickaxe/tungsten_steel"
   ]
 }

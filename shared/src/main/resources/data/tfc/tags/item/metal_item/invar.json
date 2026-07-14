@@ -2,14 +2,14 @@
   "replace": false,
   "values": [
     {
-      "id": "tfcmu2:metal/tongs/invar",
+      "id": "tfcm:metal/tongs/invar",
       "required": false
     },
     {
-      "id": "tfcmu2:metal/tong_part/invar",
+      "id": "tfcm:metal/tong_part/invar",
       "required": false
     },
-    "tfcmu2:metal/crossguard/invar",
-    "tfcmu2:metal/pommel/invar"
+    "tfcm:metal/crossguard/invar",
+    "tfcm:metal/pommel/invar"
   ]
 }

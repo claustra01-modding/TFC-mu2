@@ -1,7 +1,7 @@
 {
     "values":  [
                    {
-                       "id":  "tfcmu2:metal/rivet/constantan",
+                       "id":  "tfcm:metal/rivet/constantan",
                        "required":  false
                    }
                ]

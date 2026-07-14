@@ -1,7 +1,7 @@
 {
   "values": [
-    "tfcmu2:metal/shovel/invar",
-    "tfcmu2:metal/shovel/titanium",
-    "tfcmu2:metal/shovel/tungsten_steel"
+    "tfcm:metal/shovel/invar",
+    "tfcm:metal/shovel/titanium",
+    "tfcm:metal/shovel/tungsten_steel"
   ]
 }

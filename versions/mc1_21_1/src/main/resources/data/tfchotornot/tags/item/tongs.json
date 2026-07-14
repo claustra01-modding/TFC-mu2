@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "tfcmu2:metal/tongs/invar",
-    "tfcmu2:metal/tongs/titanium",
-    "tfcmu2:metal/tongs/tungsten_steel"
+    "tfcm:metal/tongs/invar",
+    "tfcm:metal/tongs/titanium",
+    "tfcm:metal/tongs/tungsten_steel"
   ]
 }

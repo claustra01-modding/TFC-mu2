@@ -1,7 +1,7 @@
 {
   "values": [
-    "tfcmu2:metal/sword/invar",
-    "tfcmu2:metal/sword/titanium",
-    "tfcmu2:metal/sword/tungsten_steel"
+    "tfcm:metal/sword/invar",
+    "tfcm:metal/sword/titanium",
+    "tfcm:metal/sword/tungsten_steel"
   ]
 }

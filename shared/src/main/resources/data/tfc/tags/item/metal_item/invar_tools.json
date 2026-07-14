@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     {
-      "id": "tfcmu2:metal/tongs/invar",
+      "id": "tfcm:metal/tongs/invar",
       "required": false
     }
   ]

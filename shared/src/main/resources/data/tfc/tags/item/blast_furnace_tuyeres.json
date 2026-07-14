@@ -1,7 +1,7 @@
 {
   "values": [
-    "tfcmu2:metal/tuyere/invar",
-    "tfcmu2:metal/tuyere/titanium",
-    "tfcmu2:metal/tuyere/tungsten_steel"
+    "tfcm:metal/tuyere/invar",
+    "tfcm:metal/tuyere/titanium",
+    "tfcm:metal/tuyere/tungsten_steel"
   ]
 }

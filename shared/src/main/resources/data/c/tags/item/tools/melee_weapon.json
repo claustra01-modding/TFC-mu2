@@ -1,13 +1,13 @@
 {
   "values": [
-    "tfcmu2:metal/sword/invar",
-    "tfcmu2:metal/axe/invar",
-    "tfcmu2:metal/mace/invar",
-    "tfcmu2:metal/sword/titanium",
-    "tfcmu2:metal/axe/titanium",
-    "tfcmu2:metal/mace/titanium",
-    "tfcmu2:metal/sword/tungsten_steel",
-    "tfcmu2:metal/axe/tungsten_steel",
-    "tfcmu2:metal/mace/tungsten_steel"
+    "tfcm:metal/sword/invar",
+    "tfcm:metal/axe/invar",
+    "tfcm:metal/mace/invar",
+    "tfcm:metal/sword/titanium",
+    "tfcm:metal/axe/titanium",
+    "tfcm:metal/mace/titanium",
+    "tfcm:metal/sword/tungsten_steel",
+    "tfcm:metal/axe/tungsten_steel",
+    "tfcm:metal/mace/tungsten_steel"
   ]
 }

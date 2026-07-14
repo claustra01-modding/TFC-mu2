@@ -1,7 +1,7 @@
 {
   "values": [
-    "tfcmu2:metal/propick/invar",
-    "tfcmu2:metal/propick/titanium",
-    "tfcmu2:metal/propick/tungsten_steel"
+    "tfcm:metal/propick/invar",
+    "tfcm:metal/propick/titanium",
+    "tfcm:metal/propick/tungsten_steel"
   ]
 }

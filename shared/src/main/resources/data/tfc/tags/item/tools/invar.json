@@ -1,20 +1,20 @@
 {
   "values": [
-    "tfcmu2:metal/tuyere/invar",
-    "tfcmu2:metal/fishing_rod/invar",
-    "tfcmu2:metal/pickaxe/invar",
-    "tfcmu2:metal/propick/invar",
-    "tfcmu2:metal/axe/invar",
-    "tfcmu2:metal/shovel/invar",
-    "tfcmu2:metal/hoe/invar",
-    "tfcmu2:metal/chisel/invar",
-    "tfcmu2:metal/hammer/invar",
-    "tfcmu2:metal/saw/invar",
-    "tfcmu2:metal/javelin/invar",
-    "tfcmu2:metal/sword/invar",
-    "tfcmu2:metal/mace/invar",
-    "tfcmu2:metal/knife/invar",
-    "tfcmu2:metal/scythe/invar",
-    "tfcmu2:metal/shears/invar"
+    "tfcm:metal/tuyere/invar",
+    "tfcm:metal/fishing_rod/invar",
+    "tfcm:metal/pickaxe/invar",
+    "tfcm:metal/propick/invar",
+    "tfcm:metal/axe/invar",
+    "tfcm:metal/shovel/invar",
+    "tfcm:metal/hoe/invar",
+    "tfcm:metal/chisel/invar",
+    "tfcm:metal/hammer/invar",
+    "tfcm:metal/saw/invar",
+    "tfcm:metal/javelin/invar",
+    "tfcm:metal/sword/invar",
+    "tfcm:metal/mace/invar",
+    "tfcm:metal/knife/invar",
+    "tfcm:metal/scythe/invar",
+    "tfcm:metal/shears/invar"
   ]
 }

@@ -1,6 +1,0 @@
-{
-    "textures":  {
-                     "all":  "tfcmu2:block/metal/block/lead"
-                 },
-    "parent":  "minecraft:block/cube_all"
-}

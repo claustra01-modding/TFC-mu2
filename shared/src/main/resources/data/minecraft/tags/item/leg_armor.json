@@ -1,7 +1,7 @@
 {
   "values": [
-    "tfcmu2:metal/greaves/invar",
-    "tfcmu2:metal/greaves/titanium",
-    "tfcmu2:metal/greaves/tungsten_steel"
+    "tfcm:metal/greaves/invar",
+    "tfcm:metal/greaves/titanium",
+    "tfcm:metal/greaves/tungsten_steel"
   ]
 }

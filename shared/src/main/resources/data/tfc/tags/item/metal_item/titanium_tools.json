@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     {
-      "id": "tfcmu2:metal/tongs/titanium",
+      "id": "tfcm:metal/tongs/titanium",
       "required": false
     }
   ]

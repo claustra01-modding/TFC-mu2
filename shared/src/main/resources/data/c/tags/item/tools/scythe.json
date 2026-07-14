@@ -1,7 +1,7 @@
 {
   "values": [
-    "tfcmu2:metal/scythe/invar",
-    "tfcmu2:metal/scythe/titanium",
-    "tfcmu2:metal/scythe/tungsten_steel"
+    "tfcm:metal/scythe/invar",
+    "tfcm:metal/scythe/titanium",
+    "tfcm:metal/scythe/tungsten_steel"
   ]
 }

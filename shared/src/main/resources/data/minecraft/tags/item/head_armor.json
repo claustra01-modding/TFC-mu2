@@ -1,7 +1,7 @@
 {
   "values": [
-    "tfcmu2:metal/helmet/invar",
-    "tfcmu2:metal/helmet/titanium",
-    "tfcmu2:metal/helmet/tungsten_steel"
+    "tfcm:metal/helmet/invar",
+    "tfcm:metal/helmet/titanium",
+    "tfcm:metal/helmet/tungsten_steel"
   ]
 }
