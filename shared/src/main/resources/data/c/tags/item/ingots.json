@@ -25,6 +25,7 @@
     "#c:ingots/invar",
     "#c:ingots/electrum",
     "#c:ingots/lead",
-    "#c:ingots/uranium"
+    "#c:ingots/uranium",
+    "#c:ingots/dawnstone"
   ]
 }

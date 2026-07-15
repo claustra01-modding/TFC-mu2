@@ -24,6 +24,7 @@
     "#c:wires/invar",
     "#c:wires/electrum",
     "#c:wires/lead",
-    "#c:wires/uranium"
+    "#c:wires/uranium",
+    "#c:wires/dawnstone"
   ]
 }

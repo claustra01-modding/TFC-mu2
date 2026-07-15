@@ -24,6 +24,7 @@
     "#c:rivets/invar",
     "#c:rivets/electrum",
     "#c:rivets/lead",
-    "#c:rivets/uranium"
+    "#c:rivets/uranium",
+    "#c:rivets/dawnstone"
   ]
 }

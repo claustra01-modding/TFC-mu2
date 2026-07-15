@@ -24,6 +24,7 @@
     "#c:foils/invar",
     "#c:foils/electrum",
     "#c:foils/lead",
-    "#c:foils/uranium"
+    "#c:foils/uranium",
+    "#c:foils/dawnstone"
   ]
 }
