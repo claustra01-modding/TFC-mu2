@@ -29,7 +29,7 @@ def main() -> None:
     save_png(ASSETS / "ore/quartz.png", raw_size, transfer_palette(raw_base, cut_quartz))
 
     powder_size, powder_base = load_zip_png(
-        TFC_JAR, "assets/tfc/textures/item/powder/graphite.png"
+        TFC_JAR, "assets/tfc/textures/item/powder/amethyst.png"
     )
     fluorite = load_png(ASSETS / "ore/fluorite.png")[1]
     save_png(
@@ -37,8 +37,14 @@ def main() -> None:
         powder_size,
         transfer_palette(powder_base, fluorite),
     )
+    quartz = load_png(ASSETS / "ore/quartz.png")[1]
+    save_png(
+        ASSETS / "powder/quartz.png",
+        powder_size,
+        transfer_palette(powder_base, quartz),
+    )
 
-    print("Regenerated Quartz, Cut Quartz, and Fluorite Powder textures.")
+    print("Regenerated Quartz, Cut Quartz, Fluorite Powder, and Quartz Powder textures.")
 
 
 if __name__ == "__main__":

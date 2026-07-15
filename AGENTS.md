@@ -98,7 +98,8 @@ Gem関連:
 - Cut Quartz: `tfcm:gem/cut_quartz`、tag `c:gems/quartz`
 - Quartzをsandpaperで研磨してCut Quartzにする。
 - Fluorite Powder: `tfcm:powder/fluorite`
-- Fluoriteをquernで粉砕してFluorite Powderを4個生成し、`tfc:gem_powders` と `tfc:bowl_powders` に含める。
+- Quartz Powder: `tfcm:powder/quartz`
+- FluoriteまたはQuartzをquernで粉砕して対応するPowderを4個生成し、両方を `tfc:gem_powders` と `tfc:bowl_powders` に含める。
 
 ## 5. IE由来コンテンツ
 
@@ -291,7 +292,7 @@ python3 tools/textures/regenerate_ore_washing.py
 - `bauxite`, `galena`, `uraninite` の鉱石item/block overlayとCut QuartzはTFC IE Crossover由来素材を使用する。
 - Cut QuartzはCrossoverのQuartz Shardをそのまま使う。
 - raw QuartzはTFC `item/ore/amethyst` 形状へCut Quartzのパレットを転写する。
-- Fluorite PowderはTFC `item/powder/graphite` 形状へFluoriteのパレットを転写する。
+- Fluorite PowderとQuartz PowderはTFC `item/powder/amethyst` 形状へ各鉱石itemのパレットを転写する。
 - `cobaltite` と `spodumene` の鉱石素材は、それぞれTFC Metallum UとTFC Metallum 1.12.2由来とする。
 
 生成script:
