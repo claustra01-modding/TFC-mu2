@@ -7,6 +7,7 @@ public final class TfcmTiers {
     public static final Tier INVAR = create(TfcmToolTierSpec.INVAR);
     public static final Tier TITANIUM = create(TfcmToolTierSpec.TITANIUM);
     public static final Tier TUNGSTEN_STEEL = create(TfcmToolTierSpec.TUNGSTEN_STEEL);
+    public static final Tier NETHERITE = create(TfcmToolTierSpec.NETHERITE);
 
     private TfcmTiers() {
     }

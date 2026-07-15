@@ -2,6 +2,7 @@
   "values": [
     "tfcm:metal/hoe/invar",
     "tfcm:metal/hoe/titanium",
-    "tfcm:metal/hoe/tungsten_steel"
+    "tfcm:metal/hoe/tungsten_steel",
+    "tfcm:metal/hoe/netherite"
   ]
 }

@@ -2,6 +2,7 @@
   "values": [
     "tfcm:metal/javelin/invar",
     "tfcm:metal/javelin/titanium",
-    "tfcm:metal/javelin/tungsten_steel"
+    "tfcm:metal/javelin/tungsten_steel",
+    "tfcm:metal/javelin/netherite"
   ]
 }

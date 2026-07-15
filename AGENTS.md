@@ -62,8 +62,9 @@
 - `invar`: wrought ironと同等
 - `titanium`: 鍛冶tierと耐久値はsteel相当の4 / 3300、それ以外はblack steelと同等
 - `tungsten_steel`: red / blue steelより上位。tool level 7、耐久8125、採掘速度13、攻撃補正10.5、enchantment 25とする。
+- `netherite`: 工具・防具性能はred / blue steel相当。tool level 6、耐久6500、採掘速度12、攻撃補正9、enchantment 22とし、金属色、rarity、鍛冶tierはblack steel相当の`0x111111`、`RARE`、5とする。
 
-上記3金属はTFC標準の工具、工具頭、shears、tuyere、fishing rod、shield、horse armor、防具、中間防具をすべて持つ。IDは `tfcm:metal/<tfc_item_type>/<metal>` とする。
+上記4金属はTFC標準の工具、工具頭、shears、tuyere、fishing rod、shield、horse armor、防具、中間防具をすべて持つ。IDは `tfcm:metal/<tfc_item_type>/<metal>` とする。
 
 ## 4. 独自鉱石・Gem
 
@@ -130,7 +131,7 @@ compat層はingot等の金属形状や専用加工recipeを追加しない。単
 
 ### 6.1 optional Mod連携
 
-- 対象金属は `invar`, `titanium`, `tungsten_steel` とする。
+- 対象金属は `invar`, `titanium`, `tungsten_steel`, `netherite` とする。
 - `tfc_metal_tools` は1.20.1/1.21.1のoptional dependency。導入時は `crossguard`, `pommel` を有効化し、標準工具の組立recipeを同Mod方式へ切り替える。
 - `tfchotornot` は1.21.1のみoptional dependency。導入時は `tongs`, `tong_part` を有効化する。tongsは同Mod本来の `TongsItem` として生成し、`tfchotornot:tongs` tagへ含める。
 - 1.21.1で両Modを導入した場合もtongsはHot or Not本来のrecipeを維持し、shearsのみTFC Metal Tools方式で組み立てる。
@@ -264,10 +265,10 @@ python3 tools/textures/regenerate_metals.py
 - 依存jarとIron's Spellsの抽出画像は `.tmp` に置き、リポジトリへコピーしない。
 - ingot pile用 `assets/tfc/textures/block/metal/smooth/<metal>.png` も同時生成する。
 - InvarのalloyはWrought Iron 60-70% + Nickel 30-40%。
-- `invar`、`titanium`、`tungsten_steel` のtool tierはTFC本体を直接参照せず、各versionの `TfcmTiers` に固定値で定義する。InvarはWrought Iron相当、Titaniumは耐久値3300（Steel相当）以外をBlack Steel相当とし、鍛冶tierはBlack Steelより1段低い4とする。
+- `invar`、`titanium`、`tungsten_steel`、`netherite` のtool tierはTFC本体を直接参照せず、各versionの `TfcmTiers` に固定値で定義する。InvarはWrought Iron相当、Titaniumは耐久値3300（Steel相当）以外をBlack Steel相当とし、鍛冶tierはBlack Steelより1段低い4とする。Netheriteは工具・防具性能をRed / Blue Steel相当、鍛冶tierと金属色をBlack Steel相当とする。
 - 対象TFC versionがsheet pileに対応しない限り、sheet pile assetは追加しない。
-- 工具・防具の形状元はTFC 1.21.1のtexture/modelを正本とする。工具とjavelinは `invar` がwrought iron、`titanium` が通常steel、`tungsten_steel` がred steelを使う。shield、防具、中間防具、horse armor、防具layerは `invar` がwrought iron、`titanium` がblack steel、`tungsten_steel` が通常steelを使う。
-- 完成工具、shears、javelin projectileは、`invar` / `titanium` ではwrought ironと通常steel、`tungsten_steel` ではred steelとblue steelの同色pixelを固定材maskとして扱う。木柄・紐・支点などは再着色せず、金属部分だけにパレット転写を適用する。
+- 工具・防具の形状元はTFC 1.21.1のtexture/modelを正本とする。工具とjavelinは `invar` がwrought iron、`titanium` が通常steel、`tungsten_steel` と `netherite` がred steelを使う。shield、防具、中間防具、horse armor、防具layerは `invar` がwrought iron、`titanium` がblack steel、`tungsten_steel` が通常steel、`netherite` がblack bronzeを使う。Netheriteのこれらのmodel JSONもblack bronzeを正本とする。
+- 完成工具、shears、javelin projectileは、`invar` / `titanium` ではwrought ironと通常steel、`tungsten_steel` / `netherite` ではred steelとblue steelの同色pixelを固定材maskとして扱う。木柄・紐・支点などは再着色せず、金属部分だけにパレット転写を適用する。
 - horse armorはTFC 1.21.1の全金属texture間で同色のpixelを固定材maskとし、サドル部分を再着色しない。
 - 完成knife/javelinとknife blade/javelin headのitem textureはTFC 1.21.1の形状を生成時に水平反転し、両versionで同じ共有textureを使う。version別の追加反転は行わない。javelin projectileは両versionとも反転しない。
 - optional連携のcrossguard/pommelはTFC Metal Toolsの形状を使ってshared assetへ、tongs/tong partはTFC Hot or Notの形状を使って1.21.1固有assetへ生成する。いずれも同じ金属パレット転写を使い、tongsとtong partは元Mod内の比較金属間で同色のpixelを固定材として保持する。

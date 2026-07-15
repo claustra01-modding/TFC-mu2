@@ -89,12 +89,14 @@ TOOL_METAL_PROFILES = {
     "invar": ("wrought_iron", "steel"),
     "titanium": ("steel", "wrought_iron"),
     "tungsten_steel": ("red_steel", "blue_steel"),
+    "netherite": ("red_steel", "blue_steel"),
 }
 
 ARMOR_METAL_BASES = {
     "invar": "wrought_iron",
     "titanium": "black_steel",
     "tungsten_steel": "steel",
+    "netherite": "black_bronze",
 }
 
 TOOL_FORMS = {

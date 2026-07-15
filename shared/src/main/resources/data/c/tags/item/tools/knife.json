@@ -2,6 +2,7 @@
   "values": [
     "tfcm:metal/knife/invar",
     "tfcm:metal/knife/titanium",
-    "tfcm:metal/knife/tungsten_steel"
+    "tfcm:metal/knife/tungsten_steel",
+    "tfcm:metal/knife/netherite"
   ]
 }

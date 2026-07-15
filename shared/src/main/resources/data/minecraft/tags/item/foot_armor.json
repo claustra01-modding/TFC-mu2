@@ -2,6 +2,7 @@
   "values": [
     "tfcm:metal/boots/invar",
     "tfcm:metal/boots/titanium",
-    "tfcm:metal/boots/tungsten_steel"
+    "tfcm:metal/boots/tungsten_steel",
+    "tfcm:metal/boots/netherite"
   ]
 }

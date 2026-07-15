@@ -2,6 +2,7 @@
   "values": [
     "tfcm:metal/shield/invar",
     "tfcm:metal/shield/titanium",
-    "tfcm:metal/shield/tungsten_steel"
+    "tfcm:metal/shield/tungsten_steel",
+    "tfcm:metal/shield/netherite"
   ]
 }

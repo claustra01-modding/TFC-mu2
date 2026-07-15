@@ -14,7 +14,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 public enum TfcmArmorMaterials implements ArmorMaterial, PhysicalDamageType.Multiplier {
     INVAR("invar", TFCArmorMaterials.WROUGHT_IRON, 1f, 0),
     TITANIUM("titanium", TFCArmorMaterials.BLACK_STEEL, 1f, 0),
-    TUNGSTEN_STEEL("tungsten_steel", TFCArmorMaterials.RED_STEEL, 1.25f, 1);
+    TUNGSTEN_STEEL("tungsten_steel", TFCArmorMaterials.RED_STEEL, 1.25f, 1),
+    NETHERITE("netherite", TFCArmorMaterials.RED_STEEL, 1f, 0);
 
     private final String name;
     private final TFCArmorMaterials delegate;

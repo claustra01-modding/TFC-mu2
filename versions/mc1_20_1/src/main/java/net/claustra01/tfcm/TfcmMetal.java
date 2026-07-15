@@ -52,6 +52,7 @@ public enum TfcmMetal implements RegistryMetal {
         if (this == INVAR) return TfcmTiers.INVAR;
         if (this == TITANIUM) return TfcmTiers.TITANIUM;
         if (this == TUNGSTEN_STEEL) return TfcmTiers.TUNGSTEN_STEEL;
+        if (this == NETHERITE) return TfcmTiers.NETHERITE;
         throw unsupported("toolTier");
     }
 
@@ -64,6 +65,7 @@ public enum TfcmMetal implements RegistryMetal {
         if (this == INVAR) return TfcmArmorMaterials.INVAR;
         if (this == TITANIUM) return TfcmArmorMaterials.TITANIUM;
         if (this == TUNGSTEN_STEEL) return TfcmArmorMaterials.TUNGSTEN_STEEL;
+        if (this == NETHERITE) return TfcmArmorMaterials.NETHERITE;
         throw unsupported("armorTier");
     }
 
@@ -72,6 +74,7 @@ public enum TfcmMetal implements RegistryMetal {
         if (this == INVAR) return Metal.Tier.TIER_III;
         if (this == TITANIUM) return Metal.Tier.TIER_IV;
         if (this == TUNGSTEN_STEEL) return Metal.Tier.TIER_VI;
+        if (this == NETHERITE) return Metal.Tier.TIER_V;
         throw unsupported("metalTier");
     }
 

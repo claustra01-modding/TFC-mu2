@@ -19,6 +19,7 @@ public final class TfcmArmorMaterials {
     public static final ArmorSet INVAR = register("invar", 429, 495, 528, 370, 1, 4, 5, 2, 12, 0f, 0f);
     public static final ArmorSet TITANIUM = register("titanium", 650, 750, 800, 550, 2, 5, 6, 2, 17, 2f, 0.05f);
     public static final ArmorSet TUNGSTEN_STEEL = register("tungsten_steel", 1105, 1275, 1360, 935, 4, 7, 9, 4, 25, 4f, 0.15f);
+    public static final ArmorSet NETHERITE = register("netherite", 884, 1020, 1010, 715, 3, 6, 8, 3, 23, 3f, 0.1f);
 
     private static ArmorSet register(String name, int bootsDurability, int leggingsDurability, int chestplateDurability, int helmetDurability,
                                      int bootsDefense, int leggingsDefense, int chestplateDefense, int helmetDefense,

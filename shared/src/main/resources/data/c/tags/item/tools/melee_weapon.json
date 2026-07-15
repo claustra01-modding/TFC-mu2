@@ -8,6 +8,9 @@
     "tfcm:metal/mace/titanium",
     "tfcm:metal/sword/tungsten_steel",
     "tfcm:metal/axe/tungsten_steel",
-    "tfcm:metal/mace/tungsten_steel"
+    "tfcm:metal/mace/tungsten_steel",
+    "tfcm:metal/sword/netherite",
+    "tfcm:metal/axe/netherite",
+    "tfcm:metal/mace/netherite"
   ]
 }

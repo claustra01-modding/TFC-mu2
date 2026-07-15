@@ -10,6 +10,7 @@ public final class TfcmTiers {
     public static final LevelTier INVAR = create(BlockTags.INCORRECT_FOR_IRON_TOOL, TfcmToolTierSpec.INVAR);
     public static final LevelTier TITANIUM = create(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, TfcmToolTierSpec.TITANIUM);
     public static final LevelTier TUNGSTEN_STEEL = create(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, TfcmToolTierSpec.TUNGSTEN_STEEL);
+    public static final LevelTier NETHERITE = create(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, TfcmToolTierSpec.NETHERITE);
 
     private TfcmTiers() {
     }
