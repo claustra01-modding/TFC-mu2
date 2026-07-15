@@ -4,7 +4,7 @@
                         "tag":  "c:ingots/tungsten"
                     },
     "second_input":  {
-                         "item":  "tfc:metal/ingot/weak_steel"
+                         "item":  "tfc:metal/ingot/black_steel"
                      },
     "result":  {
                    "count":  1,
