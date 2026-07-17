@@ -100,6 +100,9 @@ Gem関連:
 - Quartzをsandpaperで研磨してCut Quartzにする。
 - Quartz晶洞は `tfcm:mineral/{quartz_block,budding_quartz,quartz_cluster,large_quartz_bud,medium_quartz_bud,small_quartz_bud}` で構成する。外殻はTFC hardened basalt、中間層はraw quartzite、内層はbudding quartz : quartz block : raw quartzite = 2 : 5 : 1とする。
 - Quartz晶洞はoverworldのvein配置へ追加し、Y -48から32に平均300chunkに1回生成する。Quartz Clusterは `tfcm:gem/cut_quartz` を2個落とす。
+- Amethyst晶洞とCertus Quartz晶洞もQuartz晶洞と同じ外殻、中間層、内層比率、成長段階、配置範囲、頻度を使う。各block IDは `tfcm:mineral/<name>` とする。
+- Amethyst Clusterは `tfc:gem/amethyst` を2個落とす。blockとbudのmodelはVanilla Amethyst textureを直接参照する。
+- Certus Quartz Crystalは `tfcm:gem/certus_quartz`、tagは `c:gems/certus_quartz` とする。Certus Quartz Clusterは同itemを2個落とす。
 - Fluorite Powder: `tfcm:powder/fluorite`
 - Quartz Powder: `tfcm:powder/quartz`
 - FluoriteまたはQuartzをquernで粉砕して対応するPowderを4個生成し、両方を `tfc:gem_powders` と `tfc:bowl_powders` に含める。
@@ -299,6 +302,7 @@ python3 tools/textures/regenerate_ore_washing.py
 - `bauxite`, `galena`, `uraninite` の鉱石item/block overlayとCut QuartzはTFC IE Crossover由来素材を使用する。
 - Cut QuartzはCrossoverのQuartz Shardをそのまま使う。
 - Quartz晶洞のblock/bud textureとmodel、生成形状はTFC IE Crossover 1.21.xを正本とする。
+- Certus Quartzのitem/block/bud textureはApplied Energistics 2 1.21.1を正本とする。非成長blockは枠・中心紋・芽模様のない `quartz_block_empty`、成長blockは `flawless_budding_quartz` を使い、加工済み `quartz_block` は使わない。配布物へLGPL-3.0ライセンスを同梱する。
 - raw QuartzはTFC `item/ore/amethyst` 形状へCut Quartzのパレットを転写する。
 - Fluorite PowderとQuartz PowderはTFC `item/powder/amethyst` 形状へ各鉱石itemのパレットを転写する。
 - `cobaltite` と `spodumene` の鉱石素材は、それぞれTFC Metallum UとTFC Metallum 1.12.2由来とする。

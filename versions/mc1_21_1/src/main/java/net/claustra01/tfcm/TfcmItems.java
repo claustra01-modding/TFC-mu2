@@ -24,6 +24,7 @@ public final class TfcmItems {
     public static final Map<TfcmMetal, DeferredItem<Item>> METAL_INGOTS = registerMetalItems("ingot", Metal.ItemType.INGOT);
     public static final DeferredItem<Item> HIGH_CARBON_TUNGSTEN_STEEL_INGOT = ITEMS.register("metal/ingot/high_carbon_tungsten_steel", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> CUT_QUARTZ = ITEMS.register("gem/cut_quartz", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> CERTUS_QUARTZ = ITEMS.register("gem/certus_quartz", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> FLUORITE_POWDER = ITEMS.register("powder/fluorite", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> QUARTZ_POWDER = ITEMS.register("powder/quartz", () -> new Item(new Item.Properties()));
     public static final DeferredItem<?> QUARTZ_BLOCK = ITEMS.registerSimpleBlockItem("mineral/quartz_block", TfcmBlocks.QUARTZ_BLOCK);
@@ -32,6 +33,18 @@ public final class TfcmItems {
     public static final DeferredItem<?> LARGE_QUARTZ_BUD = ITEMS.registerSimpleBlockItem("mineral/large_quartz_bud", TfcmBlocks.LARGE_QUARTZ_BUD);
     public static final DeferredItem<?> MEDIUM_QUARTZ_BUD = ITEMS.registerSimpleBlockItem("mineral/medium_quartz_bud", TfcmBlocks.MEDIUM_QUARTZ_BUD);
     public static final DeferredItem<?> SMALL_QUARTZ_BUD = ITEMS.registerSimpleBlockItem("mineral/small_quartz_bud", TfcmBlocks.SMALL_QUARTZ_BUD);
+    public static final DeferredItem<?> AMETHYST_BLOCK = ITEMS.registerSimpleBlockItem("mineral/amethyst_block", TfcmBlocks.AMETHYST_BLOCK);
+    public static final DeferredItem<?> BUDDING_AMETHYST = ITEMS.registerSimpleBlockItem("mineral/budding_amethyst", TfcmBlocks.BUDDING_AMETHYST);
+    public static final DeferredItem<?> AMETHYST_CLUSTER = ITEMS.registerSimpleBlockItem("mineral/amethyst_cluster", TfcmBlocks.AMETHYST_CLUSTER);
+    public static final DeferredItem<?> LARGE_AMETHYST_BUD = ITEMS.registerSimpleBlockItem("mineral/large_amethyst_bud", TfcmBlocks.LARGE_AMETHYST_BUD);
+    public static final DeferredItem<?> MEDIUM_AMETHYST_BUD = ITEMS.registerSimpleBlockItem("mineral/medium_amethyst_bud", TfcmBlocks.MEDIUM_AMETHYST_BUD);
+    public static final DeferredItem<?> SMALL_AMETHYST_BUD = ITEMS.registerSimpleBlockItem("mineral/small_amethyst_bud", TfcmBlocks.SMALL_AMETHYST_BUD);
+    public static final DeferredItem<?> CERTUS_QUARTZ_BLOCK = ITEMS.registerSimpleBlockItem("mineral/certus_quartz_block", TfcmBlocks.CERTUS_QUARTZ_BLOCK);
+    public static final DeferredItem<?> BUDDING_CERTUS_QUARTZ = ITEMS.registerSimpleBlockItem("mineral/budding_certus_quartz", TfcmBlocks.BUDDING_CERTUS_QUARTZ);
+    public static final DeferredItem<?> CERTUS_QUARTZ_CLUSTER = ITEMS.registerSimpleBlockItem("mineral/certus_quartz_cluster", TfcmBlocks.CERTUS_QUARTZ_CLUSTER);
+    public static final DeferredItem<?> LARGE_CERTUS_QUARTZ_BUD = ITEMS.registerSimpleBlockItem("mineral/large_certus_quartz_bud", TfcmBlocks.LARGE_CERTUS_QUARTZ_BUD);
+    public static final DeferredItem<?> MEDIUM_CERTUS_QUARTZ_BUD = ITEMS.registerSimpleBlockItem("mineral/medium_certus_quartz_bud", TfcmBlocks.MEDIUM_CERTUS_QUARTZ_BUD);
+    public static final DeferredItem<?> SMALL_CERTUS_QUARTZ_BUD = ITEMS.registerSimpleBlockItem("mineral/small_certus_quartz_bud", TfcmBlocks.SMALL_CERTUS_QUARTZ_BUD);
     public static final Map<TfcmMetal, DeferredItem<Item>> METAL_DOUBLE_INGOTS = registerMetalItems("double_ingot", Metal.ItemType.DOUBLE_INGOT);
     public static final Map<TfcmMetal, DeferredItem<Item>> METAL_SHEETS = registerMetalItems("sheet", Metal.ItemType.SHEET);
     public static final Map<TfcmMetal, DeferredItem<Item>> METAL_DOUBLE_SHEETS = registerMetalItems("double_sheet", Metal.ItemType.DOUBLE_SHEET);

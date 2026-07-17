@@ -24,6 +24,7 @@ public final class TfcmItems {
     public static final Map<TfcmMetal, RegistryObject<Item>> METAL_INGOTS = registerMetalItems("ingot", Metal.ItemType.INGOT);
     public static final RegistryObject<Item> HIGH_CARBON_TUNGSTEN_STEEL_INGOT = ITEMS.register("metal/ingot/high_carbon_tungsten_steel", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CUT_QUARTZ = ITEMS.register("gem/cut_quartz", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CERTUS_QUARTZ = ITEMS.register("gem/certus_quartz", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> FLUORITE_POWDER = ITEMS.register("powder/fluorite", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> QUARTZ_POWDER = ITEMS.register("powder/quartz", () -> new Item(new Item.Properties()));
     public static final RegistryObject<BlockItem> QUARTZ_BLOCK = ITEMS.register("mineral/quartz_block", () -> new BlockItem(TfcmBlocks.QUARTZ_BLOCK.get(), new Item.Properties()));
@@ -32,6 +33,18 @@ public final class TfcmItems {
     public static final RegistryObject<BlockItem> LARGE_QUARTZ_BUD = ITEMS.register("mineral/large_quartz_bud", () -> new BlockItem(TfcmBlocks.LARGE_QUARTZ_BUD.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> MEDIUM_QUARTZ_BUD = ITEMS.register("mineral/medium_quartz_bud", () -> new BlockItem(TfcmBlocks.MEDIUM_QUARTZ_BUD.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> SMALL_QUARTZ_BUD = ITEMS.register("mineral/small_quartz_bud", () -> new BlockItem(TfcmBlocks.SMALL_QUARTZ_BUD.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> AMETHYST_BLOCK = ITEMS.register("mineral/amethyst_block", () -> new BlockItem(TfcmBlocks.AMETHYST_BLOCK.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> BUDDING_AMETHYST = ITEMS.register("mineral/budding_amethyst", () -> new BlockItem(TfcmBlocks.BUDDING_AMETHYST.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> AMETHYST_CLUSTER = ITEMS.register("mineral/amethyst_cluster", () -> new BlockItem(TfcmBlocks.AMETHYST_CLUSTER.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LARGE_AMETHYST_BUD = ITEMS.register("mineral/large_amethyst_bud", () -> new BlockItem(TfcmBlocks.LARGE_AMETHYST_BUD.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> MEDIUM_AMETHYST_BUD = ITEMS.register("mineral/medium_amethyst_bud", () -> new BlockItem(TfcmBlocks.MEDIUM_AMETHYST_BUD.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> SMALL_AMETHYST_BUD = ITEMS.register("mineral/small_amethyst_bud", () -> new BlockItem(TfcmBlocks.SMALL_AMETHYST_BUD.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> CERTUS_QUARTZ_BLOCK = ITEMS.register("mineral/certus_quartz_block", () -> new BlockItem(TfcmBlocks.CERTUS_QUARTZ_BLOCK.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> BUDDING_CERTUS_QUARTZ = ITEMS.register("mineral/budding_certus_quartz", () -> new BlockItem(TfcmBlocks.BUDDING_CERTUS_QUARTZ.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> CERTUS_QUARTZ_CLUSTER = ITEMS.register("mineral/certus_quartz_cluster", () -> new BlockItem(TfcmBlocks.CERTUS_QUARTZ_CLUSTER.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LARGE_CERTUS_QUARTZ_BUD = ITEMS.register("mineral/large_certus_quartz_bud", () -> new BlockItem(TfcmBlocks.LARGE_CERTUS_QUARTZ_BUD.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> MEDIUM_CERTUS_QUARTZ_BUD = ITEMS.register("mineral/medium_certus_quartz_bud", () -> new BlockItem(TfcmBlocks.MEDIUM_CERTUS_QUARTZ_BUD.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> SMALL_CERTUS_QUARTZ_BUD = ITEMS.register("mineral/small_certus_quartz_bud", () -> new BlockItem(TfcmBlocks.SMALL_CERTUS_QUARTZ_BUD.get(), new Item.Properties()));
     public static final Map<TfcmMetal, RegistryObject<Item>> METAL_DOUBLE_INGOTS = registerMetalItems("double_ingot", Metal.ItemType.DOUBLE_INGOT);
     public static final Map<TfcmMetal, RegistryObject<Item>> METAL_SHEETS = registerMetalItems("sheet", Metal.ItemType.SHEET);
     public static final Map<TfcmMetal, RegistryObject<Item>> METAL_DOUBLE_SHEETS = registerMetalItems("double_sheet", Metal.ItemType.DOUBLE_SHEET);

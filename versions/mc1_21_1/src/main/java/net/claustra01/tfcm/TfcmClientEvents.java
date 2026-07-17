@@ -58,6 +58,14 @@ public final class TfcmClientEvents {
             ItemBlockRenderTypes.setRenderLayer(TfcmBlocks.LARGE_QUARTZ_BUD.get(), cutout);
             ItemBlockRenderTypes.setRenderLayer(TfcmBlocks.MEDIUM_QUARTZ_BUD.get(), cutout);
             ItemBlockRenderTypes.setRenderLayer(TfcmBlocks.SMALL_QUARTZ_BUD.get(), cutout);
+            ItemBlockRenderTypes.setRenderLayer(TfcmBlocks.AMETHYST_CLUSTER.get(), cutout);
+            ItemBlockRenderTypes.setRenderLayer(TfcmBlocks.LARGE_AMETHYST_BUD.get(), cutout);
+            ItemBlockRenderTypes.setRenderLayer(TfcmBlocks.MEDIUM_AMETHYST_BUD.get(), cutout);
+            ItemBlockRenderTypes.setRenderLayer(TfcmBlocks.SMALL_AMETHYST_BUD.get(), cutout);
+            ItemBlockRenderTypes.setRenderLayer(TfcmBlocks.CERTUS_QUARTZ_CLUSTER.get(), cutout);
+            ItemBlockRenderTypes.setRenderLayer(TfcmBlocks.LARGE_CERTUS_QUARTZ_BUD.get(), cutout);
+            ItemBlockRenderTypes.setRenderLayer(TfcmBlocks.MEDIUM_CERTUS_QUARTZ_BUD.get(), cutout);
+            ItemBlockRenderTypes.setRenderLayer(TfcmBlocks.SMALL_CERTUS_QUARTZ_BUD.get(), cutout);
         });
     }
 

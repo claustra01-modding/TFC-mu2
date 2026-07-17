@@ -52,6 +52,46 @@ public final class TfcmBlocks {
         new TfcmBuddingQuartzBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).randomTicks()
             .strength(1.5F).sound(SoundType.STONE).requiresCorrectToolForDrops(),
             SMALL_QUARTZ_BUD, MEDIUM_QUARTZ_BUD, LARGE_QUARTZ_BUD, QUARTZ_CLUSTER));
+    public static final DeferredBlock<AmethystBlock> AMETHYST_BLOCK = BLOCKS.register("mineral/amethyst_block", () ->
+        new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(1.5F)
+            .sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<AmethystClusterBlock> AMETHYST_CLUSTER = BLOCKS.register("mineral/amethyst_cluster", () ->
+        new AmethystClusterBlock(7, 3, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE)
+            .noOcclusion().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).requiresCorrectToolForDrops().lightLevel(state -> 5)));
+    public static final DeferredBlock<AmethystClusterBlock> LARGE_AMETHYST_BUD = BLOCKS.register("mineral/large_amethyst_bud", () ->
+        new AmethystClusterBlock(5, 3, BlockBehaviour.Properties.ofFullCopy(AMETHYST_CLUSTER.get())
+            .sound(SoundType.LARGE_AMETHYST_BUD).lightLevel(state -> 4)));
+    public static final DeferredBlock<AmethystClusterBlock> MEDIUM_AMETHYST_BUD = BLOCKS.register("mineral/medium_amethyst_bud", () ->
+        new AmethystClusterBlock(4, 3, BlockBehaviour.Properties.ofFullCopy(AMETHYST_CLUSTER.get())
+            .sound(SoundType.MEDIUM_AMETHYST_BUD).lightLevel(state -> 2)));
+    public static final DeferredBlock<AmethystClusterBlock> SMALL_AMETHYST_BUD = BLOCKS.register("mineral/small_amethyst_bud", () ->
+        new AmethystClusterBlock(3, 4, BlockBehaviour.Properties.ofFullCopy(AMETHYST_CLUSTER.get())
+            .sound(SoundType.SMALL_AMETHYST_BUD).lightLevel(state -> 1)));
+    public static final DeferredBlock<TfcmBuddingQuartzBlock> BUDDING_AMETHYST =
+        BLOCKS.register("mineral/budding_amethyst", () -> new TfcmBuddingQuartzBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).randomTicks().strength(1.5F)
+                .sound(SoundType.AMETHYST).requiresCorrectToolForDrops(),
+            SMALL_AMETHYST_BUD, MEDIUM_AMETHYST_BUD, LARGE_AMETHYST_BUD, AMETHYST_CLUSTER));
+    public static final DeferredBlock<Block> CERTUS_QUARTZ_BLOCK = BLOCKS.register("mineral/certus_quartz_block", () ->
+        new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(3F, 5F)
+            .sound(SoundType.STONE).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<AmethystClusterBlock> CERTUS_QUARTZ_CLUSTER = BLOCKS.register("mineral/certus_quartz_cluster", () ->
+        new AmethystClusterBlock(7, 3, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN)
+            .noOcclusion().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).requiresCorrectToolForDrops().lightLevel(state -> 5)));
+    public static final DeferredBlock<AmethystClusterBlock> LARGE_CERTUS_QUARTZ_BUD = BLOCKS.register("mineral/large_certus_quartz_bud", () ->
+        new AmethystClusterBlock(5, 3, BlockBehaviour.Properties.ofFullCopy(CERTUS_QUARTZ_CLUSTER.get())
+            .sound(SoundType.LARGE_AMETHYST_BUD).lightLevel(state -> 4)));
+    public static final DeferredBlock<AmethystClusterBlock> MEDIUM_CERTUS_QUARTZ_BUD = BLOCKS.register("mineral/medium_certus_quartz_bud", () ->
+        new AmethystClusterBlock(4, 3, BlockBehaviour.Properties.ofFullCopy(CERTUS_QUARTZ_CLUSTER.get())
+            .sound(SoundType.MEDIUM_AMETHYST_BUD).lightLevel(state -> 2)));
+    public static final DeferredBlock<AmethystClusterBlock> SMALL_CERTUS_QUARTZ_BUD = BLOCKS.register("mineral/small_certus_quartz_bud", () ->
+        new AmethystClusterBlock(3, 4, BlockBehaviour.Properties.ofFullCopy(CERTUS_QUARTZ_CLUSTER.get())
+            .sound(SoundType.SMALL_AMETHYST_BUD).lightLevel(state -> 1)));
+    public static final DeferredBlock<TfcmBuddingQuartzBlock> BUDDING_CERTUS_QUARTZ =
+        BLOCKS.register("mineral/budding_certus_quartz", () -> new TfcmBuddingQuartzBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).randomTicks().strength(1.5F)
+                .sound(SoundType.STONE).requiresCorrectToolForDrops(),
+            SMALL_CERTUS_QUARTZ_BUD, MEDIUM_CERTUS_QUARTZ_BUD, LARGE_CERTUS_QUARTZ_BUD, CERTUS_QUARTZ_CLUSTER));
 
     private TfcmBlocks() {
     }
