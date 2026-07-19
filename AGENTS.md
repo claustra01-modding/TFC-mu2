@@ -1,6 +1,6 @@
 # tfcm 開発仕様
 
-## 1. 運用ルール
+## 1. 共通・固有運用ルール
 
 - 仕様、形状、ID、有効化条件、生成規則を変更した場合はこのファイルを更新する。
 - 共通実装は `shared/src/main`、Minecraft・loader固有実装は `versions/<version>/src/main` に置く。
@@ -9,6 +9,9 @@
 - 再利用する保守ツールは `tools` に置き、生成物だけでなく再生成手順も維持する。
 - JSONはBOMなしUTF-8で保存する。
 - 既存リリースのregistry IDや名前空間を変更する場合は、ワールド互換性を最優先する。
+- 本書は作業規約と実装仕様を兼ねる。数値、ID、条件、例外、優先順位は残し、作業履歴とdataから機械的に得られる重複一覧は載せない。
+- READMEは利用者向けの名称、配布先、build入口に絞り、詳細仕様や作業履歴を重複掲載しない。
+- 対象版の実JAR・公式ソースを確認し、client/server境界、optional依存なしのclass loading、無関係な既存差分を守る。
 - release用Mod ID、resource namespace、Java package、class prefixは `tfcm` / `Tfcm` に統一し、旧namespaceとの互換aliasは持たない。
 
 ## 2. build構成
