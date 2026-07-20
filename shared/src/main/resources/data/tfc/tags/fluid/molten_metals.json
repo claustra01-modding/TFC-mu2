@@ -25,6 +25,7 @@
     "tfc:metal/electrum",
     "tfc:metal/lead",
     "tfc:metal/uranium",
-    "tfc:metal/dawnstone"
+    "tfc:metal/dawnstone",
+    "tfc:metal/andesite_alloy"
   ]
 }

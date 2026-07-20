@@ -26,6 +26,7 @@
     "#c:ingots/electrum",
     "#c:ingots/lead",
     "#c:ingots/uranium",
-    "#c:ingots/dawnstone"
+    "#c:ingots/dawnstone",
+    "#c:ingots/andesite_alloy"
   ]
 }

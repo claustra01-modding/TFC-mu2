@@ -25,6 +25,7 @@
     "#c:storage_blocks/electrum",
     "#c:storage_blocks/lead",
     "#c:storage_blocks/uranium",
-    "#c:storage_blocks/dawnstone"
+    "#c:storage_blocks/dawnstone",
+    "#c:storage_blocks/andesite_alloy"
   ]
 }

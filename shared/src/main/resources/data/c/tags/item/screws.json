@@ -25,6 +25,7 @@
     "#c:screws/electrum",
     "#c:screws/lead",
     "#c:screws/uranium",
-    "#c:screws/dawnstone"
+    "#c:screws/dawnstone",
+    "#c:screws/andesite_alloy"
   ]
 }

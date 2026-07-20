@@ -25,6 +25,7 @@
     "#c:rods/electrum",
     "#c:rods/lead",
     "#c:rods/uranium",
-    "#c:rods/dawnstone"
+    "#c:rods/dawnstone",
+    "#c:rods/andesite_alloy"
   ]
 }

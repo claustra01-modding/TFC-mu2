@@ -35,7 +35,8 @@ public enum TfcmMetal implements RegistryMetal {
     SOLDER(TfcmMetalSpec.SOLDER),
     TUNGSTEN_STEEL(TfcmMetalSpec.TUNGSTEN_STEEL),
     NETHERITE(TfcmMetalSpec.NETHERITE),
-    DAWNSTONE(TfcmMetalSpec.DAWNSTONE);
+    DAWNSTONE(TfcmMetalSpec.DAWNSTONE),
+    ANDESITE_ALLOY(TfcmMetalSpec.ANDESITE_ALLOY);
 
     private final TfcmMetalSpec spec;
 

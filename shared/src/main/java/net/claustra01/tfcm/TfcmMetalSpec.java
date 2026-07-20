@@ -27,7 +27,8 @@ public enum TfcmMetalSpec {
     SOLDER("solder", Rarity.UNCOMMON, 0x888888, false),
     TUNGSTEN_STEEL("tungsten_steel", Rarity.EPIC, 0x2F353E, true),
     NETHERITE("netherite", Rarity.RARE, 0x111111, true),
-    DAWNSTONE("dawnstone", Rarity.UNCOMMON, 0xB18143, false);
+    DAWNSTONE("dawnstone", Rarity.UNCOMMON, 0xB18143, false),
+    ANDESITE_ALLOY("andesite_alloy", Rarity.COMMON, 0x757E76, false);
 
     private final String serializedName;
     private final Rarity rarity;
@@ -60,7 +61,7 @@ public enum TfcmMetalSpec {
     public int forgingTier() {
         return switch (this) {
             case ANTIMONY, CONSTANTAN, ELECTRUM, LEAD, DAWNSTONE -> 1;
-            case MITHRIL, ARCANE, REFINED_GLOWSTONE, REFINED_OBSIDIAN -> 2;
+            case MITHRIL, ARCANE, REFINED_GLOWSTONE, REFINED_OBSIDIAN, ANDESITE_ALLOY -> 2;
             case COMPRESSED_IRON, PLATINUM, IRIDIUM, OSMIUM, OSMIRIDIUM, COBALT, LITHIUM, ALUMINUM,
                 INVAR, URANIUM, TUNGSTEN, SOLDER -> 3;
             case TITANIUM -> 5;

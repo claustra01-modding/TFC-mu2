@@ -25,6 +25,7 @@
     "#c:rings/electrum",
     "#c:rings/lead",
     "#c:rings/uranium",
-    "#c:rings/dawnstone"
+    "#c:rings/dawnstone",
+    "#c:rings/andesite_alloy"
   ]
 }

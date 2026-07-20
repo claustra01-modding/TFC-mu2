@@ -25,6 +25,7 @@
     "#c:wires/electrum",
     "#c:wires/lead",
     "#c:wires/uranium",
-    "#c:wires/dawnstone"
+    "#c:wires/dawnstone",
+    "#c:wires/andesite_alloy"
   ]
 }

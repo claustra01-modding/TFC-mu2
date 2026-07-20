@@ -50,6 +50,7 @@
 | `tungsten_steel` | epic | `#2F353E` | 7 | 6 | 1535 | Yes |
 | `netherite` | rare | `#111111` | 6 | 5 | 1535 | Yes |
 | `dawnstone` | uncommon | `#B18143` | 1 | 0 | 1000 | - |
+| `andesite_alloy` | common | `#757E76` | 2 | 1 | 520 | - |
 
 ## Tool性能
 
@@ -92,6 +93,7 @@
 | `high_carbon_tungsten_steel` | high carbon steel | - | 高炭素鉄系合金 |
 | `netherite` | black steel | black steel | 高度合金 |
 | `dawnstone` | bronze | bronze | 銅系合金 |
+| `andesite_alloy` | bronze | bronze | 低tier岩石・金属合金 |
 
 `high_carbon_tungsten_steel` はingotだけを生成します。Ore Washingは鉱石textureをパレット元、graphite/chromiumを形状元とする従来ルールを維持します。
 
@@ -107,7 +109,7 @@
 | `osmiridium` | osmium 60-80%, iridium 20-40% |
 | `solder` | antimony 40-60%, bismuth 20-40%, tin 20-40% |
 
-NaquadahとDawnstoneには、このmod独自のalloying recipeを追加しません。
+Naquadah、Dawnstone、Andesite Alloyには、このmod独自のalloying recipeを追加しません。Andesite AlloyはCreateのitemをoptionalなcommon ingot tagで受け入れ、520℃で100 mBの `tfc:metal/andesite_alloy` に溶融します。
 
 ## 金床
 
