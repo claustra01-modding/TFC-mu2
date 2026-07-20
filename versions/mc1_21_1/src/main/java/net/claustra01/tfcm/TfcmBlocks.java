@@ -15,6 +15,8 @@ import net.dries007.tfc.common.blocks.rock.Rock;
 import net.dries007.tfc.common.blockentities.TFCBlockEntities;
 import net.dries007.tfc.util.Metal;
 import net.claustra01.tfcm.block.TfcmBuddingQuartzBlock;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.AmethystBlock;
 import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Block;
@@ -134,7 +136,8 @@ public final class TfcmBlocks {
                 continue;
             }
             final String id = "metal/anvil/" + metal.getSerializedName();
-            blockItems.put(metal, items.registerSimpleBlockItem(id, METAL_ANVILS.get(metal)));
+            blockItems.put(metal, items.register(id, () -> new BlockItem(
+                METAL_ANVILS.get(metal).get(), new Item.Properties().rarity(metal.rarity()))));
         }
         return Collections.unmodifiableMap(blockItems);
     }

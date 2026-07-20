@@ -135,7 +135,8 @@ public final class TfcmBlocks {
                 continue;
             }
             final String id = "metal/anvil/" + metal.getSerializedName();
-            blockItems.put(metal, registerBlockItem(items, id, METAL_ANVILS.get(metal)));
+            blockItems.put(metal, items.register(id, () -> new BlockItem(
+                METAL_ANVILS.get(metal).get(), new Item.Properties().rarity(metal.rarity()))));
         }
         return Collections.unmodifiableMap(blockItems);
     }
